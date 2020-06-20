@@ -102,19 +102,11 @@ function Start() {
           usedDeck = i;
           whichDeck(i);
         }
-        console.log(usedDeck);
-        console.log(keyNames);
-        console.log(storedFlashCards);
-        // storeCards();
-        // storedFlashCards = [];
-        // usedDeck = i;
       }
     };
     let deck = document.getElementById("choosedeck");
     deck.appendChild(para);
   }
-  console.log(keyNames);
-  console.log(storedFlashCards);
 }
 
 // Make Decks
@@ -172,23 +164,12 @@ function chooseDeck() {
           usedDeck = i;
           whichDeck(i);
         } else {
-          console.log(usedDeck);
-          console.log(keyNames);
-          console.log(storedFlashCards);
           storeCards();
-          console.log(storedFlashCards);
+
           storedFlashCards = [];
-          console.log(storedFlashCards);
-          console.log(flashCards);
-          console.log(i);
+
           usedDeck = i;
-          console.log(usedDeck);
           whichDeck(i);
-          console.log(usedDeck);
-          // usedDeck = i;
-          console.log(usedDeck);
-          console.log(keyNames);
-          console.log(storedFlashCards);
         }
       }
     };
@@ -201,7 +182,6 @@ function whichDeck(i) {
   this.i = i;
 
   if ((storedFlashCards.length || flashCards.length) > 0) {
-    console.log(usedDeck);
     storeCards();
 
     localStorage.setItem(keyNames[this.i], JSON.stringify(flashCards));
@@ -211,7 +191,6 @@ function whichDeck(i) {
     storedFlashCards = localStorage.getItem(keyNames[this.i]);
     storedFlashCards = storedFlashCards ? JSON.parse(storedFlashCards) : [];
 
-    console.log(usedDeck);
     startFlashcard();
   }
 
