@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Flashcard</title>
+    <link rel="stylesheet" href="style//style.css" />
+  </head>
+  <body onload="Start()">
+    <div class="menu">
+      <div class="menu-list">
+        <div class="newdeck">
+          <div class="menu-div" onclick="menuChooser('newdeck')">
+            NEW DECK
+          </div>
+          <div class="newdeck-content" id="newDeck">
+            <div class="newdeck-content-div">
+              <div>
+                <label for="deckname">Name of the Deck:</label>
+                <input type="text" id="adddeck" name="deckname" />
+              </div>
+              <div>
+                <button id="submitdeck" onclick="newDeck()">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-space">|</div>
+        <div class="choosedeck" id="menu2">
+          <div class="menu-div">
+            CHOOSE A DECK
+          </div>
+          <div class="choosedeck-content" id="choosedeck"></div>
+        </div>
+        <div class="menu-space">|</div>
+        <div class="addflashcard">
+          <div
+            class="menu-div"
+            id="addFlashcards"
+            onclick="menuChooser('addflashcards')"
+          >
+            ADD FLASHCARDS
+          </div>
+          <div class="addflashcard-content" id="addwords">
+            <div class="addflashcard-content-div">
+              <div>
+                <label for="nyelv1szo">Magyar:</label>
+                <input type="text" id="nyelv1szo" name="nyelv1szo" />
+              </div>
+              <div>
+                <label for="nyelv2szo">English:</label>
+                <input type="text" id="nyelv2szo" name="nyelv2szo" />
+              </div>
+              <div>
+                <label for="nyelv3szo">Arabic:</label>
+                <input type="text" id="nyelv3szo" name="nyelv3szo" />
+              </div>
+              <div>
+                <button id="submitword" onclick="flashcardMaker()">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-space">|</div>
+        <div class="menu-div" id="menu4">
+          HU / EN
+        </div>
+      </div>
+    </div>
+
+    <div class="informationline"></div>
+
+    <div>
+      <div class="center">
+        <div class="scene">
+          <div class="card" id="card1">
+            <div class="card_face card_face--front">
+              <p>
+                Magyar
+              </p>
+            </div>
+            <div class="card_face card_face--back" id="magyar1">
+              <div id="nyelv1"></div>
+            </div>
+          </div>
+        </div>
+        <div class="scene">
+          <div class="card" id="card2">
+            <div class="card_face card_face--front">
+              <p>
+                English
+              </p>
+            </div>
+            <div class="card_face card_face--back" id="english1">
+              <div id="nyelv2"></div>
+            </div>
+          </div>
+        </div>
+        <div class="scene">
+          <div class="card" id="card3">
+            <div class="card_face card_face--front">
+              <p>
+                عربي
+              </p>
+            </div>
+            <div class="card_face card_face--back" id="arabic1">
+              <div id="nyelv3"></div>
+              <p id="nyelv3youtube">YouTube</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="center">
+        <div>
+          <button class="startbutton" onclick="startFlashcard()">
+            Start / Finish
+          </button>
+          <button class="okbutton" onclick="flashcardChecker(true)">Ok</button>
+          <button class="idontknowbutton" onclick="flashcardChecker(false)">
+            I don't know
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
