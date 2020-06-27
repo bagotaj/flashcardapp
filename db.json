@@ -145,43 +145,6 @@
       "arab": "عبد",
       "ok": 2,
       "repeat": 8
-    },
-    {
-      "magyar": "nagyon",
-      "angol": "very",
-      "arab": "جداً",
-      "ok": 2,
-      "repeat": 4
-    },
-    {
-      "magyar": "valami, dolog, tárgy",
-      "angol": "thing, something, object",
-      "arab": "شيء",
-      "ok": -1,
-      "repeat": 0
-    },
-    {
-      "magyar": "Jó éjszakát",
-      "angol": "Good Night",
-      "arab": "ليلة سعيدة",
-      "ok": 0,
-      "repeat": 0
-    },
-    {
-      "magyar": "nő",
-      "angol": "woman",
-      "arab": "اِمرأة",
-      "ok": 1,
-      "repeat": 0
-    },
-    {
-      "magyar": "férfi",
-      "angol": "man",
-      "arab": "رَجُل",
-      "ok": 0,
-      "repeat": 0
-    },
-    { "magyar": "lány", "angol": "girl", "arab": "بِنت", "ok": 0, "repeat": 0 },
-    { "magyar": "fiú", "angol": "boy", "arab": "وَلَد", "ok": -2, "repeat": 0 }
+    }
   ]
 }
