@@ -16,34 +16,15 @@ p {
   z-index: 1000;
 }
 
-.choosedeck,
-.newdeck,
-.addflashcard {
-  overflow: hidden;
-  background: transparent;
-  color: #fcfaf3;
-}
-
 .newdeck-content {
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: none;
-  width: 100%;
-  left: 0;
+  display: none;
   height: 120px;
 }
 
 .newdeck-content-div {
-  width: 50%;
   height: 100%;
   background: transparent;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background: none;
-  visibility: hidden;
 }
 
 .newdeck-content-div div {
@@ -53,34 +34,20 @@ p {
   background: transparent;
 }
 
-.newdeck-content button {
-  width: 120px;
-  height: 40px;
-  background: transparent;
-  border: none;
-  color: #fcfaf3;
-  font-size: 14px;
-  text-transform: uppercase;
-  background-color: #d84b50;
-  border-radius: 3px;
-  cursor: pointer;
-  margin: 20px;
-}
-
 .newdeck-content label {
-  margin-right: 10px;
-  color: #fcfaf3;
+  font-size: 1rem;
+  color: #212529;
   background: transparent;
 }
 
 .newdeck-content input {
-  margin-right: 20px;
+  margin: 0 0 10px 0;
 }
 
 .choosedeck-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: #f8f9fa;
   min-width: 160px;
   z-index: 1001;
   transition: all 0.3s ease-in-out;
@@ -156,7 +123,7 @@ p {
 }
 
 .flashcard-margin {
-  margin-top: 50px;
+  margin-top: 45px;
 }
 
 .button-menu-margin {
@@ -164,11 +131,12 @@ p {
 }
 
 .scene {
+  margin-top: 5px;
   height: 200px;
   perspective: 800px;
 }
 
-.card {
+.flip-card {
   width: 100%;
   height: 100%;
   transition: transform 1s;
@@ -179,7 +147,7 @@ p {
   text-align: center;
 }
 
-.card.is-flipped {
+.flip-card.is-flipped {
   transform: rotateY(180deg);
 }
 
@@ -201,7 +169,7 @@ p {
 }
 
 .card_face--back {
-  color: rgba(0, 123, 255, 0.15);
+  color: #333545;
   background: white;
   transform: rotateY(180deg);
   flex-direction: column;

@@ -22,7 +22,7 @@ var addflashcardsMenuStatus = false;
 
 function menuChooser(menu) {
   this.menu = menu;
-  let newDeckvisibility = document.querySelector(".newdeck-content-div");
+  let newDeckDisplay = document.querySelector(".newdeck-content");
   let addFlashcardsvisibility = document.querySelector(
     ".addflashcard-content-div"
   );
@@ -35,12 +35,12 @@ function menuChooser(menu) {
       addflashcardsMenuStatus = false;
     }
     document.getElementById("newDeck").style.zIndex = "1000";
-    newDeckvisibility.style.visibility = "visible";
+    newDeckDisplay.style.display = "block";
 
     newdeckMenuStatus = true;
   } else if (this.menu == "newdeck" && newdeckMenuStatus == true) {
     document.getElementById("newDeck").style.zIndex = "1";
-    newDeckvisibility.style.visibility = "hidden";
+    newDeckDisplay.style.display = "none";
 
     newdeckMenuStatus = false;
   }

@@ -18,7 +18,7 @@
   </head>
   <body onload="Start()">
     <nav class="navbar navbar-expand-md navbar-light bg-light">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="index.html">
         <img
           src="logodesign.svg"
           width="30"
@@ -39,10 +39,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">NEW DECK</a>
+            <a class="nav-link" href="#" onclick="menuChooser('newdeck')"
+              >NEW DECK</a
+            >
           </li>
-          <li class="nav-item">
+          <li class="nav-item choosedeck">
             <a class="nav-link" href="#">CHOOSE A DECK</a>
+            <div class="choosedeck-content" id="choosedeck"></div>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">ADD FLASHCARDS</a>
@@ -54,30 +57,33 @@
       </div>
     </nav>
 
-    <!--      <div class="menu-list">
-        <div class="newdeck">
-          <div class="menu-div" onclick="menuChooser('newdeck')">
-            NEW DECK
-          </div>
-          <div class="newdeck-content" id="newDeck">
-            <div class="newdeck-content-div">
-              <div>
-                <label for="deckname">Name of the Deck:</label>
-                <input type="text" id="adddeck" name="deckname" />
-              </div>
-              <div>
-                <button id="submitdeck" onclick="newDeck()">Submit</button>
-              </div>
+    <div class="container-fluid newdeck-content bg-light" id="newDeck">
+      <div class="row newdeck-content-div">
+        <div class="col-12 col-md-6 themed-grid-col"></div>
+        <div class="col-12 col-md-6 themed-grid-col">
+          <div class="row">
+            <div class="col-12 col-md-4 themed-grid-col">
+              <label for="deckname">Name of the Deck:</label>
+            </div>
+            <div class="col-12 col-md-4 themed-grid-col">
+              <input type="text" id="adddeck" name="deckname" />
+            </div>
+            <div class="col-12 col-md-4 themed-grid-col">
+              <button
+                class="btn btn-danger"
+                id="submitdeck"
+                onclick="newDeck()"
+              >
+                Submit
+              </button>
             </div>
           </div>
         </div>
-        <div class="menu-space">|</div>
-        <div class="choosedeck" id="menu2">
-          <div class="menu-div">
-            CHOOSE A DECK
-          </div>
-          <div class="choosedeck-content" id="choosedeck"></div>
-        </div>
+      </div>
+    </div>
+
+    <!-- 
+
         <div class="menu-space">|</div>
         <div class="addflashcard">
           <div
@@ -118,9 +124,9 @@
   -->
 
     <div class="container-fluid flashcard-margin">
-      <div class="row mb-3">
-        <div class="col-6 col-sm-4 themed-grid-col scene">
-          <div class="card" id="card1">
+      <div class="row">
+        <div class="col-12 col-md-4 themed-grid-col scene">
+          <div class="flip-card" id="card1">
             <div class="card_face card_face--front">
               <p>
                 Magyar
@@ -131,8 +137,8 @@
             </div>
           </div>
         </div>
-        <div class="col-6 col-sm-4 themed-grid-col scene">
-          <div class="card" id="card2">
+        <div class="col-12 col-md-4 themed-grid-col scene">
+          <div class="flip-card" id="card2">
             <div class="card_face card_face--front">
               <p>
                 English
@@ -143,8 +149,8 @@
             </div>
           </div>
         </div>
-        <div class="col-6 col-sm-4 themed-grid-col scene">
-          <div class="card" id="card3">
+        <div class="col-12 col-md-4 themed-grid-col scene">
+          <div class="flip-card" id="card3">
             <div class="card_face card_face--front">
               <p>
                 عربي
