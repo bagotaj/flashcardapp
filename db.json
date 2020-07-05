@@ -1,150 +1,323 @@
 {
-  "arabWords": [
+  "flashcards": [
     {
-      "magyar": "kiváló, csodálatos",
-      "angol": "excellent, amazing",
-      "arab": "مُمتاز",
-      "ok": -3
+      "arabWords": [
+        {
+          "magyar": "kiváló, csodálatos",
+          "angol": "excellent, amazing",
+          "arab": "مُمتاز",
+          "ok": -3
+        },
+        {
+          "magyar": "normál, szabályos, rendes",
+          "angol": "normal, regular",
+          "arab": "عادي",
+          "ok": 0
+        },
+        {
+          "magyar": "új",
+          "angol": "new",
+          "arab": "جَديد",
+          "ok": 2,
+          "repeat": 0
+        },
+        {
+          "magyar": "kedves, nagylelkű",
+          "angol": "kind, generous",
+          "arab": "كَريم",
+          "ok": 1
+        },
+        {
+          "magyar": "ügyes, okos",
+          "angol": "smart, clever",
+          "arab": "ذَكِيّ",
+          "ok": 2,
+          "repeat": 7
+        },
+        {
+          "magyar": "jó, tökéletes",
+          "angol": "good, perfect",
+          "arab": "جَيّد",
+          "ok": -2
+        },
+        {
+          "magyar": "nagy, terjedelmes",
+          "angol": "big, large",
+          "arab": "كَبير",
+          "ok": 1
+        },
+        {
+          "magyar": "gyors, élénk, fürge",
+          "angol": "fast, quick",
+          "arab": "سَريع",
+          "ok": 1
+        },
+        {
+          "magyar": "tréfás, érdekes, jó",
+          "angol": "fun, interesting, good",
+          "arab": "مُمتيع",
+          "ok": 0
+        },
+        { "magyar": "csirke", "angol": "chicken", "arab": "دَجاج", "ok": -1 },
+        {
+          "magyar": "látogat, meglátogat",
+          "angol": "visit, visited",
+          "arab": "زار",
+          "ok": 5,
+          "repeat": 30
+        },
+        {
+          "magyar": "friss, hideg",
+          "angol": "cold, cool",
+          "arab": "بارد",
+          "ok": -1
+        },
+        { "magyar": "hal", "angol": "fish", "arab": "سَمَك", "ok": 1 },
+        { "magyar": "nyelv", "angol": "language", "arab": "لُغة", "ok": 0 },
+        {
+          "magyar": "fontos",
+          "angol": "important",
+          "arab": "مُهِمّ",
+          "ok": 5,
+          "repeat": 24
+        },
+        {
+          "magyar": "egyszerű, könnyű",
+          "angol": "easy, simple",
+          "arab": "سَهلة",
+          "ok": 0
+        },
+        {
+          "magyar": "egyetem",
+          "angol": "university",
+          "arab": "جامعِة",
+          "ok": 0
+        },
+        {
+          "magyar": "dolog, valami, tárgy",
+          "angol": "thing, something",
+          "arab": "شَيء",
+          "ok": 1
+        },
+        { "magyar": "épület", "angol": "building", "arab": "بِناية", "ok": 1 },
+        { "magyar": "étel", "angol": "food", "arab": "طعام", "ok": 0 },
+        {
+          "magyar": "étkezés",
+          "angol": "meal",
+          "arab": "وجبة",
+          "ok": 2,
+          "repeat": 8
+        },
+        { "magyar": "kenyér", "angol": "bread", "arab": "خبز", "ok": 0 },
+        {
+          "magyar": "tészta",
+          "angol": "pasta",
+          "arab": "مكرونة",
+          "ok": 3,
+          "repeat": 4
+        },
+        { "magyar": "rizs", "angol": "rice", "arab": "أرز", "ok": 1 },
+        {
+          "magyar": "rossz",
+          "angol": "wrong",
+          "arab": "مخطئ",
+          "ok": 1,
+          "repeat": 0
+        },
+        {
+          "magyar": "fáradt",
+          "angol": "tired",
+          "arab": "متعب",
+          "ok": 2,
+          "repeat": 3
+        },
+        {
+          "magyar": "beteg",
+          "angol": "sick",
+          "arab": "مريض",
+          "ok": 1,
+          "repeat": 0
+        },
+        {
+          "magyar": "éhes",
+          "angol": "hungry",
+          "arab": "جائع",
+          "ok": -4,
+          "repeat": 0
+        },
+        {
+          "magyar": "szomjas",
+          "angol": "thirsty",
+          "arab": "عطِش",
+          "ok": 1,
+          "repeat": 0
+        },
+        {
+          "magyar": "szolga",
+          "angol": "slave",
+          "arab": "عبد",
+          "ok": 2,
+          "repeat": 8
+        }
+      ]
     },
     {
-      "magyar": "normál, szabályos, rendes",
-      "angol": "normal, regular",
-      "arab": "عادي",
-      "ok": 0
-    },
-    { "magyar": "új", "angol": "new", "arab": "جَديد", "ok": 2, "repeat": 0 },
-    {
-      "magyar": "kedves, nagylelkű",
-      "angol": "kind, generous",
-      "arab": "كَريم",
-      "ok": 1
-    },
-    {
-      "magyar": "ügyes, okos",
-      "angol": "smart, clever",
-      "arab": "ذَكِيّ",
-      "ok": 2,
-      "repeat": 7
-    },
-    {
-      "magyar": "jó, tökéletes",
-      "angol": "good, perfect",
-      "arab": "جَيّد",
-      "ok": -2
-    },
-    {
-      "magyar": "nagy, terjedelmes",
-      "angol": "big, large",
-      "arab": "كَبير",
-      "ok": 1
-    },
-    {
-      "magyar": "gyors, élénk, fürge",
-      "angol": "fast, quick",
-      "arab": "سَريع",
-      "ok": 1
-    },
-    {
-      "magyar": "tréfás, érdekes, jó",
-      "angol": "fun, interesting, good",
-      "arab": "مُمتيع",
-      "ok": 0
-    },
-    { "magyar": "csirke", "angol": "chicken", "arab": "دَجاج", "ok": -1 },
-    {
-      "magyar": "látogat, meglátogat",
-      "angol": "visit, visited",
-      "arab": "زار",
-      "ok": 5,
-      "repeat": 30
-    },
-    {
-      "magyar": "friss, hideg",
-      "angol": "cold, cool",
-      "arab": "بارد",
-      "ok": -1
-    },
-    { "magyar": "hal", "angol": "fish", "arab": "سَمَك", "ok": 1 },
-    { "magyar": "nyelv", "angol": "language", "arab": "لُغة", "ok": 0 },
-    {
-      "magyar": "fontos",
-      "angol": "important",
-      "arab": "مُهِمّ",
-      "ok": 5,
-      "repeat": 24
-    },
-    {
-      "magyar": "egyszerű, könnyű",
-      "angol": "easy, simple",
-      "arab": "سَهلة",
-      "ok": 0
-    },
-    { "magyar": "egyetem", "angol": "university", "arab": "جامعِة", "ok": 0 },
-    {
-      "magyar": "dolog, valami, tárgy",
-      "angol": "thing, something",
-      "arab": "شَيء",
-      "ok": 1
-    },
-    { "magyar": "épület", "angol": "building", "arab": "بِناية", "ok": 1 },
-    { "magyar": "étel", "angol": "food", "arab": "طعام", "ok": 0 },
-    {
-      "magyar": "étkezés",
-      "angol": "meal",
-      "arab": "وجبة",
-      "ok": 2,
-      "repeat": 8
-    },
-    { "magyar": "kenyér", "angol": "bread", "arab": "خبز", "ok": 0 },
-    {
-      "magyar": "tészta",
-      "angol": "pasta",
-      "arab": "مكرونة",
-      "ok": 3,
-      "repeat": 4
-    },
-    { "magyar": "rizs", "angol": "rice", "arab": "أرز", "ok": 1 },
-    {
-      "magyar": "rossz",
-      "angol": "wrong",
-      "arab": "مخطئ",
-      "ok": 1,
-      "repeat": 0
-    },
-    {
-      "magyar": "fáradt",
-      "angol": "tired",
-      "arab": "متعب",
-      "ok": 2,
-      "repeat": 3
-    },
-    {
-      "magyar": "beteg",
-      "angol": "sick",
-      "arab": "مريض",
-      "ok": 1,
-      "repeat": 0
-    },
-    {
-      "magyar": "éhes",
-      "angol": "hungry",
-      "arab": "جائع",
-      "ok": -4,
-      "repeat": 0
-    },
-    {
-      "magyar": "szomjas",
-      "angol": "thirsty",
-      "arab": "عطِش",
-      "ok": 1,
-      "repeat": 0
-    },
-    {
-      "magyar": "szolga",
-      "angol": "slave",
-      "arab": "عبد",
-      "ok": 2,
-      "repeat": 8
+      "englishWords": [
+        {
+          "magyar": "elhagyatott",
+          "angol": "abandoned",
+          "arab": "",
+          "ok": 3,
+          "repeat": 10
+        },
+        {
+          "magyar": "felhalmozódás",
+          "angol": "accumulation",
+          "arab": "",
+          "ok": 1,
+          "repeat": 2
+        },
+        {
+          "magyar": "elfog, befog",
+          "angol": "capture",
+          "arab": "",
+          "ok": 5,
+          "repeat": 25
+        },
+        {
+          "magyar": "világosság, tisztaság",
+          "angol": "clarity",
+          "arab": "",
+          "ok": 10,
+          "repeat": 25
+        },
+        {
+          "magyar": "folyamatos",
+          "angol": "contiguous",
+          "arab": "",
+          "ok": 3,
+          "repeat": 10
+        },
+        {
+          "magyar": "reménytelen, kétségbeesett, elszánt",
+          "angol": "desperate",
+          "arab": "",
+          "ok": -3,
+          "repeat": 10
+        },
+        {
+          "magyar": "szétválaszt, szakít, szétrombol",
+          "angol": "disrupt",
+          "arab": "",
+          "ok": 4,
+          "repeat": 12
+        },
+        {
+          "magyar": "becslés, felbecsül",
+          "angol": "estimate",
+          "arab": "",
+          "ok": 1,
+          "repeat": 4
+        },
+        {
+          "magyar": "végül is",
+          "angol": "eventually",
+          "arab": "",
+          "ok": 3,
+          "repeat": 8
+        },
+        {
+          "magyar": "fáradtság",
+          "angol": "fatigue",
+          "arab": "",
+          "ok": 12,
+          "repeat": 30
+        },
+        {
+          "magyar": "bél, belek",
+          "angol": "gut",
+          "arab": "",
+          "ok": 3,
+          "repeat": 8
+        },
+        {
+          "magyar": "kézi, kézben hordozható",
+          "angol": "handheld",
+          "arab": "",
+          "ok": 2,
+          "repeat": 4
+        },
+        {
+          "magyar": "remete",
+          "angol": "hermit",
+          "arab": "",
+          "ok": 3,
+          "repeat": 8
+        },
+        {
+          "magyar": "becsület, tisztesség, megbecsül, tisztel",
+          "angol": "honour",
+          "arab": "",
+          "ok": 6,
+          "repeat": 26
+        },
+        {
+          "magyar": "megbecsült, tisztelt",
+          "angol": "honoured",
+          "arab": "",
+          "ok": 7,
+          "repeat": 30
+        },
+        {
+          "magyar": "szenvedélyes",
+          "angol": "passionate",
+          "arab": "",
+          "ok": 5,
+          "repeat": 28
+        },
+        {
+          "magyar": "beállít, felszerel, létrehoz",
+          "angol": "set up",
+          "arab": "",
+          "ok": 2,
+          "repeat": 4
+        },
+        {
+          "magyar": "befűzni",
+          "angol": "slip it in",
+          "arab": "",
+          "ok": 2,
+          "repeat": 6
+        },
+        {
+          "magyar": "kézművesség, kézműveskedés",
+          "angol": "craft",
+          "arab": "",
+          "ok": 8,
+          "repeat": 30
+        },
+        {
+          "magyar": "kikövez, burkol (utat)",
+          "angol": "pave",
+          "arab": "",
+          "ok": 1,
+          "repeat": 0
+        },
+        {
+          "magyar": "ömlik, zuhog",
+          "angol": "pour",
+          "arab": "",
+          "ok": 2,
+          "repeat": 6
+        },
+        {
+          "magyar": "megdöbbentő",
+          "angol": "staggering",
+          "arab": "",
+          "ok": -6,
+          "repeat": 0
+        }
+      ]
     }
   ]
 }
