@@ -23,14 +23,12 @@ var addflashcardsMenuStatus = false;
 function menuChooser(menu) {
   this.menu = menu;
   let newDeckDisplay = document.querySelector(".newdeck-content");
-  let addFlashcardsvisibility = document.querySelector(
-    ".addflashcard-content-div"
-  );
+  let addFlashcardDisplay = document.querySelector(".addflashcard-content");
 
   if (this.menu == "newdeck" && newdeckMenuStatus == false) {
     if (addflashcardsMenuStatus == true) {
       document.getElementById("addwords").style.zIndex = "1";
-      addFlashcardsvisibility.style.visibility = "hidden";
+      addFlashcardDisplay.style.display = "none";
 
       addflashcardsMenuStatus = false;
     }
@@ -48,17 +46,17 @@ function menuChooser(menu) {
   if (this.menu == "addflashcards" && addflashcardsMenuStatus == false) {
     if (newdeckMenuStatus == true) {
       document.getElementById("newDeck").style.zIndex = "1";
-      newDeckvisibility.style.visibility = "hidden";
+      newDeckDisplay.style.display = "none";
 
       newdeckMenuStatus = false;
     }
     document.getElementById("addwords").style.zIndex = "1000";
-    addFlashcardsvisibility.style.visibility = "visible";
+    addFlashcardDisplay.style.display = "block";
 
     addflashcardsMenuStatus = true;
   } else if (this.menu == "addflashcards" && addflashcardsMenuStatus == true) {
     document.getElementById("addwords").style.zIndex = "1";
-    addFlashcardsvisibility.style.visibility = "hidden";
+    addFlashcardDisplay.style.display = "none";
 
     addflashcardsMenuStatus = false;
   }

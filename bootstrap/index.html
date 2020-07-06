@@ -48,7 +48,9 @@
             <div class="choosedeck-content" id="choosedeck"></div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">ADD FLASHCARDS</a>
+            <a class="nav-link" href="#" onclick="menuChooser('addflashcards')"
+              >ADD FLASHCARDS</a
+            >
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">DATABASE</a>
@@ -82,39 +84,37 @@
       </div>
     </div>
 
-    <!-- 
-
-        <div class="menu-space">|</div>
-        <div class="addflashcard">
-          <div
-            class="menu-div"
-            id="addFlashcards"
-            onclick="menuChooser('addflashcards')"
-          >
-            ADD FLASHCARDS
-          </div>
-          <div class="addflashcard-content" id="addwords">
-            <div class="addflashcard-content-div">
-              <div>
-                <label for="nyelv1szo">Magyar:</label>
-                <input type="text" id="nyelv1szo" name="nyelv1szo" />
-              </div>
-              <div>
-                <label for="nyelv2szo">English:</label>
-                <input type="text" id="nyelv2szo" name="nyelv2szo" />
-              </div>
-              <div>
-                <label for="nyelv3szo">Arabic:</label>
-                <input type="text" id="nyelv3szo" name="nyelv3szo" />
-              </div>
-              <div>
-                <button id="submitword" onclick="flashcardMaker()">
-                  Submit
-                </button>
-              </div>
+    <div class="container-fluid addflashcard-content bg-light" id="addwords">
+      <div class="row addflashcard-content-div">
+        <div class="col-12 themed-grid-col">
+          <div class="row">
+            <div class="col-12 col-md-3 themed-grid-col">
+              <label for="nyelv1szo">Magyar:</label>
+              <input type="text" id="nyelv1szo" name="nyelv1szo" />
+            </div>
+            <div class="col-12 col-md-3 themed-grid-col">
+              <label for="nyelv2szo">English:</label>
+              <input type="text" id="nyelv2szo" name="nyelv2szo" />
+            </div>
+            <div class="col-12 col-md-3 themed-grid-col">
+              <label for="nyelv3szo">Arabic:</label>
+              <input type="text" id="nyelv3szo" name="nyelv3szo" />
+            </div>
+            <div class="col-12 col-md-3 themed-grid-col">
+              <button
+                class="btn btn-danger"
+                id="submitword"
+                onclick="flashcardMaker()"
+              >
+                Submit
+              </button>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- 
         <div class="menu-space">|</div>
         <div class="menu-div" id="menu4">
           HU / EN
@@ -122,61 +122,62 @@
       </div>
   
   -->
-
-    <div class="container-fluid flashcard-margin">
-      <div class="row">
-        <div class="col-12 col-md-4 themed-grid-col scene">
-          <div class="flip-card" id="card1">
-            <div class="card_face card_face--front">
-              <p>
-                Magyar
-              </p>
+    <div class="container">
+      <div class="container-fluid flashcard-margin">
+        <div class="row">
+          <div class="col-12 col-md-4 themed-grid-col scene">
+            <div class="flip-card" id="card1">
+              <div class="card_face card_face--front">
+                <p>
+                  Magyar
+                </p>
+              </div>
+              <div class="card_face card_face--back" id="magyar1">
+                <div id="nyelv1"></div>
+              </div>
             </div>
-            <div class="card_face card_face--back" id="magyar1">
-              <div id="nyelv1"></div>
+          </div>
+          <div class="col-12 col-md-4 themed-grid-col scene">
+            <div class="flip-card" id="card2">
+              <div class="card_face card_face--front">
+                <p>
+                  English
+                </p>
+              </div>
+              <div class="card_face card_face--back" id="english1">
+                <div id="nyelv2"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4 themed-grid-col scene">
+            <div class="flip-card" id="card3">
+              <div class="card_face card_face--front">
+                <p>
+                  عربي
+                </p>
+              </div>
+              <div class="card_face card_face--back" id="arabic1">
+                <div id="nyelv3"></div>
+                <p id="nyelv3youtube">YouTube</p>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-12 col-md-4 themed-grid-col scene">
-          <div class="flip-card" id="card2">
-            <div class="card_face card_face--front">
-              <p>
-                English
-              </p>
-            </div>
-            <div class="card_face card_face--back" id="english1">
-              <div id="nyelv2"></div>
-            </div>
+
+        <div class="container-fluid button-menu-margin">
+          <div class="center">
+            <button class="btn btn-danger" onclick="startFlashcard()">
+              Finish
+            </button>
+
+            <button class="btn btn-primary" onclick="flashcardChecker(true)">
+              Ok
+            </button>
+
+            <button class="btn btn-primary" onclick="flashcardChecker(false)">
+              I don't know
+            </button>
           </div>
-        </div>
-        <div class="col-12 col-md-4 themed-grid-col scene">
-          <div class="flip-card" id="card3">
-            <div class="card_face card_face--front">
-              <p>
-                عربي
-              </p>
-            </div>
-            <div class="card_face card_face--back" id="arabic1">
-              <div id="nyelv3"></div>
-              <p id="nyelv3youtube">YouTube</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="container-fluid button-menu-margin">
-        <div class="center">
-          <button class="btn btn-danger" onclick="startFlashcard()">
-            Finish
-          </button>
-
-          <button class="btn btn-primary" onclick="flashcardChecker(true)">
-            Ok
-          </button>
-
-          <button class="btn btn-primary" onclick="flashcardChecker(false)">
-            I don't know
-          </button>
         </div>
       </div>
     </div>
