@@ -315,27 +315,6 @@
                     "arab": "",
                     "ok": 8,
                     "repeat": 30
-                },
-                {
-                    "magyar": "kikövez, burkol (utat)",
-                    "angol": "pave",
-                    "arab": "",
-                    "ok": 1,
-                    "repeat": 0
-                },
-                {
-                    "magyar": "ömlik, zuhog",
-                    "angol": "pour",
-                    "arab": "",
-                    "ok": 2,
-                    "repeat": 6
-                },
-                {
-                    "magyar": "megdöbbentő",
-                    "angol": "staggering",
-                    "arab": "",
-                    "ok": -6,
-                    "repeat": 0
                 }
             ]
         }
