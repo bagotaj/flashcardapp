@@ -1,18 +1,21 @@
 {
     "arabwords": [
         {
+            "id": 1,
             "magyar": "kiváló, csodálatos",
             "angol": "excellent, amazing",
             "arab": "مُمتاز",
             "ok": -3
         },
         {
+            "id": 2,
             "magyar": "normál, szabályos, rendes",
             "angol": "normal, regular",
             "arab": "عادي",
             "ok": 0
         },
         {
+            "id": 3,
             "magyar": "új",
             "angol": "new",
             "arab": "جَديد",
@@ -20,12 +23,14 @@
             "repeat": 0
         },
         {
+            "id": 4,
             "magyar": "kedves, nagylelkű",
             "angol": "kind, generous",
             "arab": "كَريم",
             "ok": 1
         },
         {
+            "id": 5,
             "magyar": "ügyes, okos",
             "angol": "smart, clever",
             "arab": "ذَكِيّ",
@@ -33,36 +38,42 @@
             "repeat": 7
         },
         {
+            "id": 6,
             "magyar": "jó, tökéletes",
             "angol": "good, perfect",
             "arab": "جَيّد",
             "ok": -2
         },
         {
+            "id": 7,
             "magyar": "nagy, terjedelmes",
             "angol": "big, large",
             "arab": "كَبير",
             "ok": 1
         },
         {
+            "id": 8,
             "magyar": "gyors, élénk, fürge",
             "angol": "fast, quick",
             "arab": "سَريع",
             "ok": 1
         },
         {
+            "id": 9,
             "magyar": "tréfás, érdekes, jó",
             "angol": "fun, interesting, good",
             "arab": "مُمتيع",
             "ok": 0
         },
         {
+            "id": 10,
             "magyar": "csirke",
             "angol": "chicken",
             "arab": "دَجاج",
             "ok": -1
         },
         {
+            "id": 11,
             "magyar": "látogat, meglátogat",
             "angol": "visit, visited",
             "arab": "زار",
@@ -70,19 +81,28 @@
             "repeat": 30
         },
         {
+            "id": 12,
             "magyar": "friss, hideg",
             "angol": "cold, cool",
             "arab": "بارد",
             "ok": -1
         },
-        { "magyar": "hal", "angol": "fish", "arab": "سَمَك", "ok": 1 },
         {
+            "id": 13,
+            "magyar": "hal",
+            "angol": "fish",
+            "arab": "سَمَك",
+            "ok": 1
+        },
+        {
+            "id": 14,
             "magyar": "nyelv",
             "angol": "language",
             "arab": "لُغة",
             "ok": 0
         },
         {
+            "id": 15,
             "magyar": "fontos",
             "angol": "important",
             "arab": "مُهِمّ",
@@ -90,31 +110,42 @@
             "repeat": 24
         },
         {
+            "id": 16,
             "magyar": "egyszerű, könnyű",
             "angol": "easy, simple",
             "arab": "سَهلة",
             "ok": 0
         },
         {
+            "id": 17,
             "magyar": "egyetem",
             "angol": "university",
             "arab": "جامعِة",
             "ok": 0
         },
         {
+            "id": 18,
             "magyar": "dolog, valami, tárgy",
             "angol": "thing, something",
             "arab": "شَيء",
             "ok": 1
         },
         {
+            "id": 19,
             "magyar": "épület",
             "angol": "building",
             "arab": "بِناية",
             "ok": 1
         },
-        { "magyar": "étel", "angol": "food", "arab": "طعام", "ok": 0 },
         {
+            "id": 20,
+            "magyar": "étel",
+            "angol": "food",
+            "arab": "طعام",
+            "ok": 0
+        },
+        {
+            "id": 21,
             "magyar": "étkezés",
             "angol": "meal",
             "arab": "وجبة",
@@ -122,20 +153,23 @@
             "repeat": 8
         },
         {
+            "id": 22,
             "magyar": "kenyér",
             "angol": "bread",
             "arab": "خبز",
             "ok": 0
         },
         {
+            "id": 23,
             "magyar": "tészta",
             "angol": "pasta",
             "arab": "مكرونة",
             "ok": 3,
             "repeat": 4
         },
-        { "magyar": "rizs", "angol": "rice", "arab": "أرز", "ok": 1 },
+        { "id": 24, "magyar": "rizs", "angol": "rice", "arab": "أرز", "ok": 1 },
         {
+            "id": 25,
             "magyar": "rossz",
             "angol": "wrong",
             "arab": "مخطئ",
@@ -143,6 +177,7 @@
             "repeat": 0
         },
         {
+            "id": 26,
             "magyar": "fáradt",
             "angol": "tired",
             "arab": "متعب",
@@ -150,6 +185,7 @@
             "repeat": 3
         },
         {
+            "id": 27,
             "magyar": "beteg",
             "angol": "sick",
             "arab": "مريض",
@@ -157,6 +193,7 @@
             "repeat": 0
         },
         {
+            "id": 28,
             "magyar": "éhes",
             "angol": "hungry",
             "arab": "جائع",
@@ -164,6 +201,7 @@
             "repeat": 0
         },
         {
+            "id": 29,
             "magyar": "szomjas",
             "angol": "thirsty",
             "arab": "عطِش",
@@ -171,6 +209,7 @@
             "repeat": 0
         },
         {
+            "id": 30,
             "magyar": "szolga",
             "angol": "slave",
             "arab": "عبد",
@@ -180,6 +219,7 @@
     ],
     "englishwords": [
         {
+            "id": 1,
             "magyar": "elhagyatott",
             "angol": "abandoned",
             "arab": "",
