@@ -20,6 +20,8 @@ var flipCard3Clicked = false;
 var newdeckMenuStatus = false;
 var addflashcardsMenuStatus = false;
 
+// Which menu choosed on menu bar
+
 function menuChooser(menu) {
     this.menu = menu;
     let newDeckDisplay = document.querySelector(".newdeck-content");
@@ -65,6 +67,8 @@ function menuChooser(menu) {
     }
 }
 
+// Which flashcars was clicked
+
 function clickHandler1() {
     flashcardIsClicked1 = true;
 }
@@ -77,6 +81,8 @@ function clickHandler3() {
     flashcardIsClicked3 = true;
 }
 
+// Flashcard clicking elements
+
 var cardOne = document.getElementById("card1");
 cardOne.addEventListener("click", flipCard1);
 
@@ -85,6 +91,41 @@ cardTwo.addEventListener("click", flipCard2);
 
 var cardThree = document.getElementById("card3");
 cardThree.addEventListener("click", flipCard3);
+
+function flipCard1() {
+    flipCard1Clicked = true;
+    document.getElementById("card1").classList.toggle("is-flipped");
+    document.getElementById("nyelv1").style.display = "block";
+
+    flashcardIsClicked1 = false;
+}
+
+function flipCard2() {
+    flipCard2Clicked = true;
+    if (flashcardIsClicked2 == true) {
+        return;
+    } else {
+        document.getElementById("card2").classList.toggle("is-flipped");
+        document.getElementById("nyelv2").style.display = "block";
+
+        flashcardIsClicked2 = false;
+    }
+}
+
+function flipCard3() {
+    flipCard3Clicked = true;
+    if (flashcardIsClicked3 == true) {
+        return;
+    } else {
+        document.getElementById("card3").classList.toggle("is-flipped");
+        document.getElementById("nyelv3").style.display = "block";
+        document.getElementById("nyelv3youtube").style.display = "block";
+
+        flashcardIsClicked3 = false;
+    }
+}
+
+// App starter function
 
 function Start() {
     for (let i = 0; i < localStorage.length; i++) {
@@ -236,39 +277,6 @@ function flashcardMaker() {
             repeat: 0,
         });
         inputs.forEach((input) => (input.value = ""));
-    }
-}
-
-function flipCard1() {
-    flipCard1Clicked = true;
-    document.getElementById("card1").classList.toggle("is-flipped");
-    document.getElementById("nyelv1").style.display = "block";
-
-    flashcardIsClicked1 = false;
-}
-
-function flipCard2() {
-    flipCard2Clicked = true;
-    if (flashcardIsClicked2 == true) {
-        return;
-    } else {
-        document.getElementById("card2").classList.toggle("is-flipped");
-        document.getElementById("nyelv2").style.display = "block";
-
-        flashcardIsClicked2 = false;
-    }
-}
-
-function flipCard3() {
-    flipCard3Clicked = true;
-    if (flashcardIsClicked3 == true) {
-        return;
-    } else {
-        document.getElementById("card3").classList.toggle("is-flipped");
-        document.getElementById("nyelv3").style.display = "block";
-        document.getElementById("nyelv3youtube").style.display = "block";
-
-        flashcardIsClicked3 = false;
     }
 }
 
