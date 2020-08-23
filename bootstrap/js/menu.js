@@ -18,10 +18,12 @@ function Start() {
         para.appendChild(node);
         para.onclick = function () {
             if (usedDeck == i) {
+                createFlashcardPage();
                 whichDeck(i);
             } else {
                 if (usedDeck == null) {
                     usedDeck = i;
+                    createFlashcardPage();
                     whichDeck(i);
                 }
             }
@@ -32,7 +34,7 @@ function Start() {
 }
 
 // Make Decks
-// localstorage -be tenni
+// Save data to Localstorage
 
 function newDeck() {
     var inputs = document.querySelectorAll("input");
@@ -80,10 +82,12 @@ function chooseDeck() {
         para.appendChild(node);
         para.onclick = function () {
             if (usedDeck == i) {
+                createFlashcardPage();
                 whichDeck(i);
             } else {
                 if (usedDeck == null) {
                     usedDeck = i;
+                    createFlashcardPage();
                     whichDeck(i);
                 } else {
                     storeCards();
@@ -91,6 +95,7 @@ function chooseDeck() {
                     storedFlashCards = [];
 
                     usedDeck = i;
+                    createFlashcardPage();
                     whichDeck(i);
                 }
             }
