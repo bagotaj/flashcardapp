@@ -1,59 +1,12 @@
-function createNewDeckPage() {
-    siteBody.innerHTML = "";
-
-    let divNewDeck = createAnyElement("div", {
-        class: "container-fluid flashcard-margin",
-    });
-
-    let divNewDeckRow = createAnyElement("div", {
-        class: "row",
-    });
-
-    let colLeft = createAnyElement("div", {
-        class: "col-12 col-md-3 themed-grid-col",
-    });
-
-    let colCenter = createNewDeckBody();
-
-    let colRight = createAnyElement("div", {
-        class: "col-12 col-md-3 themed-grid-col",
-    });
-
-    divNewDeckRow.appendChild(colLeft);
-    divNewDeckRow.appendChild(colCenter);
-    divNewDeckRow.appendChild(colRight);
-
-    divNewDeck.appendChild(divNewDeckRow);
-
-    siteBody.appendChild(divNewDeck);
-
-    return siteBody;
-}
-
 function createNewDeckBody() {
-    let colCenterBody = createAnyElement("div", {
-        class: "col-12 col-md-6 themed-grid-col",
-    });
+    colCenterBodyRowStorage = {};
 
-    for (let k in colCenterBodyRowStorage) {
-        let divNewDeckBodyRow = createAnyElement("div", {
-            class: "row",
-        });
-        let colNewDeckBody = createAnyElement("div", {
-            class: "col-12 themed-grid-col",
-        });
+    createNewDeckLabelInput();
 
-        colNewDeckBody.appendChild(colCenterBodyRowStorage[k]);
-        divNewDeckBodyRow.appendChild(colNewDeckBody);
-        colCenterBody.appendChild(divNewDeckBodyRow);
-    }
+    let colCenterBody = createColCenterBodyPart();
 
     return colCenterBody;
 }
-
-// Store New Deck Labels and Inputs
-
-let colCenterBodyRowStorage = {};
 
 function createNewDeckLabel() {
     let newDeckLabel = createAnyElement("label", {
@@ -111,5 +64,3 @@ function createNewDeckLabelInput() {
 
     colCenterBodyRowStorage.newDeckSubmit = newDeckSubmit;
 }
-
-createNewDeckLabelInput();

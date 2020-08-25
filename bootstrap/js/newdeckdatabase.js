@@ -1,42 +1,38 @@
 // Make Decks
 // Save data to Localstorage
 
-let newDeckLanguages = [];
-
 function newDeck() {
+    newDeckLanguages = [];
+
     let inputs = document.querySelectorAll("input");
 
-    /* if (storedFlashCards.length > 0) {
+    if (storedFlashCards.length > 0) {
         storeCards();
     }
 
     deleteDecks();
- */
-    let newDeckName = document.getElementById("adddeck").value;
+
+    let newDeckName = document.querySelector("#adddeck").value;
 
     for (let i = 0; i < 3; i++) {
         let newDeckLanguage = document.getElementById(`language${i}`).value;
-        newDeckLanguages.push(newDeckLanguage);
+
+        if (newDeckLanguage == "") {
+            continue;
+        } else {
+            newDeckLanguages.push(newDeckLanguage);
+        }
     }
 
-    storedFlashCards.push({
-        [newDeckLanguages[0]]: newDeckLanguages[0],
-        [newDeckLanguages[1]]: newDeckLanguages[1],
-        [newDeckLanguages[2]]: newDeckLanguages[2],
-        youtube: "youtube",
-        ok: 0,
-        repeat: 0,
-    });
+    localStorage.setItem(newDeckName, JSON.stringify(storedFlashCards));
 
-    console.log(newDeckName);
+    createChooseADeckList();
 
-    /* localStorage.setItem(newDeckName, JSON.stringify(storedFlashCards));
-
-    Start();
+    usedDeck = 0;
 
     storedFlashCards = [];
 
-    inputs.forEach((input) => (input.value = "")); */
+    inputs.forEach((input) => (input.value = ""));
 }
 
 function deleteDecks() {

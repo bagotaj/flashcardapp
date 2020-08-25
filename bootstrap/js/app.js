@@ -5,6 +5,11 @@ var flashCards = [];
 var storedFlashCards = [];
 var editWord = [];
 
+let newDeckLanguages = [];
+
+// Store New Deck Labels and Inputs
+let colCenterBodyRowStorage = {};
+
 var minusThreeLess = [];
 var minusTwo = [];
 var minusOne = [];
@@ -66,45 +71,28 @@ function flipCard3() {
     }
 }
 
-// storedFlashCards = storedFlashCards ? JSON.parse(storedFlashCards) : [];
-
 // Add flashcards
-// store the cards
-
-// kivalaszthato itt is a deck (vagy legalabb jelezni, hogy melyik deck aktiv)
-
-// megadhato, hogy ket- vagy harom nyelvu legyen a deck
-// ez alapjan tarolni, hogy hany kartya jelenjen meg
-
-// array elso eleme legyen ez!
 
 function flashcardMaker() {
-    var magyar = document.getElementById("nyelv1szo").value;
-    var angol = document.getElementById("nyelv2szo").value;
-    var arab = document.getElementById("nyelv3szo").value;
+    for (let i = 0; i < newDeckLanguages.length; i++) {
+        let language = document.getElementById(newDeckLanguages[i]).value;
+
+        storedFlashCards.push({
+            [newDeckLanguages[i]]: language,
+        });
+    }
+
     var inputs = document.querySelectorAll("input");
 
-    if (storedFlashCards === null) {
-        flashCards.push({
-            magyar: magyar,
-            angol: angol,
-            arab: arab,
-            youtube: youtube,
-            ok: 0,
-            repeat: 0,
-        });
-        inputs.forEach((input) => (input.value = ""));
-    } else {
-        storedFlashCards.push({
-            magyar: magyar,
-            angol: angol,
-            arab: arab,
-            youtube: youtube,
-            ok: 0,
-            repeat: 0,
-        });
-        inputs.forEach((input) => (input.value = ""));
-    }
+    storedFlashCards.push({
+        youtube: "",
+        ok: 0,
+        repeat: 0,
+    });
+
+    inputs.forEach((input) => (input.value = ""));
+
+    storeCards();
 }
 
 function startFlashcard() {
