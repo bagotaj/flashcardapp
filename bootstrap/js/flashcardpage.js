@@ -1,5 +1,3 @@
-let languages = ["Magyar", "English", "عربي"];
-
 function createFlashcardPage() {
     siteBody.innerHTML = "";
 
@@ -13,29 +11,47 @@ function createFlashcardPage() {
 
     let divButtonRow = createButtonRow();
 
-    for (let i = 0; i < 3; i++) {
-        let cols = createAnyElement("div", {
-            class: "col-12 col-md-4 themed-grid-col scene",
-        });
-        let flipCardDiv = createAnyElement("div", {
-            class: "flip-card",
-            id: `card${i + 1}`,
-            onclick: `flipCard${i + 1}()`,
-        });
-        let flashcardFront = createFlipCardFrontElement(languages[i]);
-        let flachcardBack = createFlipCardBackElement(
-            "cardID" + i,
-            "wordID" + i
-        );
-        flipCardDiv.appendChild(flashcardFront);
-        flipCardDiv.appendChild(flachcardBack);
-        cols.appendChild(flipCardDiv);
-        divRow.appendChild(cols);
+    for (let i = 0; i < deckLanguages.length; i++) {
+        let colsize = 4;
+
+        if (deckLanguages.includes("")) {
+            colsize = 6;
+            if (deckLanguages[i] == "") {
+                continue;
+            } else {
+                let cols = createFlashcard(colsize, i);
+                divRow.appendChild(cols);
+            }
+        } else {
+            let cols = createFlashcard(colsize, i);
+            divRow.appendChild(cols);
+        }
     }
 
     div.appendChild(divRow);
     div.appendChild(divButtonRow);
     siteBody.appendChild(div);
+}
+
+function createFlashcard(classcolsize, index) {
+    let cols = createAnyElement("div", {
+        class: `col-12 col-md-${classcolsize} themed-grid-col scene`,
+    });
+    let flipCardDiv = createAnyElement("div", {
+        class: "flip-card",
+        id: `card${index + 1}`,
+        onclick: `flipCard${index + 1}()`,
+    });
+    let flashcardFront = createFlipCardFrontElement(deckLanguages[index]);
+    let flachcardBack = createFlipCardBackElement(
+        "cardID" + index,
+        "wordID" + index
+    );
+    flipCardDiv.appendChild(flashcardFront);
+    flipCardDiv.appendChild(flachcardBack);
+    cols.appendChild(flipCardDiv);
+
+    return cols;
 }
 
 function createFlipCardFrontElement(languageName) {

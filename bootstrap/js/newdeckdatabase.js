@@ -2,7 +2,7 @@
 // Save data to Localstorage
 
 function newDeck() {
-    newDeckLanguages = [];
+    deckLanguages = [];
 
     let inputs = document.querySelectorAll("input");
 
@@ -17,18 +17,18 @@ function newDeck() {
     for (let i = 0; i < 3; i++) {
         let newDeckLanguage = document.getElementById(`language${i}`).value;
 
-        if (newDeckLanguage == "") {
-            continue;
-        } else {
-            newDeckLanguages.push(newDeckLanguage);
-        }
+        deckLanguages.push(newDeckLanguage);
     }
 
-    localStorage.setItem(newDeckName, JSON.stringify(storedFlashCards));
+    localStorage.setItem(newDeckName, JSON.stringify(emptyArray));
 
     createChooseADeckList();
 
-    usedDeck = 0;
+    for (let i = 0; i < localStorage.length; i++) {
+        if (localStorage.key(i) == newDeckName) {
+            usedDeck = i;
+        }
+    }
 
     storedFlashCards = [];
 

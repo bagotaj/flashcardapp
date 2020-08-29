@@ -1,33 +1,40 @@
-var keyNames = [];
+let keyNames = [];
 
-var usedDeck;
+let usedDeck;
 
 // Choose a deck
 // kivalasztani, ha van mar
 
 function chooseDeck() {
+    /* deckLanguages = []; */
+
     deleteDecks();
 
     createChooseADeckList();
 }
 
-function whichDeck(i) {
-    this.i = i;
+function whichDeck(index) {
+    deckLanguages = [];
 
     if (storedFlashCards.length > 0) {
         storeCards();
-
-        localStorage.setItem(
-            keyNames[this.i],
-            JSON.stringify(storedFlashCards)
-        );
     }
 
     if (storedFlashCards.length == 0) {
-        storedFlashCards = localStorage.getItem(keyNames[this.i]);
+        storedFlashCards = localStorage.getItem(keyNames[index]);
         storedFlashCards = storedFlashCards ? JSON.parse(storedFlashCards) : [];
 
-        startFlashcard();
+        let keys = [];
+
+        for (let k in storedFlashCards[0]) {
+            keys.push(k);
+        }
+
+        for (let i = 0; i < 3; i++) {
+            deckLanguages.push(keys[i]);
+        }
+
+        usedDeck = index;
     }
 }
 
@@ -41,28 +48,13 @@ function createChooseADeckList() {
         let node = document.createTextNode(keyNames[i]);
         para.appendChild(node);
         para.onclick = function () {
-            if (usedDeck == i) {
-                createFlashcardPage();
-                whichDeck(i);
-            } else {
-                if (usedDeck == null) {
-                    usedDeck = i;
-                    createFlashcardPage();
-                    whichDeck(i);
-                } else {
-                    storeCards();
+            storedFlashCards = [];
 
-                    storedFlashCards = [];
-
-                    usedDeck = i;
-                    createFlashcardPage();
-                    whichDeck(i);
-                }
-            }
+            whichDeck(i);
+            createFlashcardPage();
+            startFlashcard();
         };
         let deck = document.getElementById("choosedeck");
         deck.appendChild(para);
     }
 }
-
-function setFlashcardsTitle() {}

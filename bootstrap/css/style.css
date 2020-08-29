@@ -130,7 +130,8 @@ p {
     position: absolute;
     height: 100%;
     width: 100%;
-    font-size: 20px;
+    font-size: 16px;
+    text-transform: uppercase;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     display: flex;

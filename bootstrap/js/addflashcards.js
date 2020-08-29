@@ -20,22 +20,34 @@ function createAddFlashcardsSubmitButton() {
 }
 
 function createAddFlashcardsLabelInput() {
+    if (deckLanguages == "") {
+        flashcardLabelInputCreator();
+    } else {
+        flashcardLabelInputCreator();
+    }
+}
+
+function flashcardLabelInputCreator() {
     let addFlashcardsSubmit = createAddFlashcardsSubmitButton();
 
-    for (let i = 0; i < newDeckLanguages.length; i++) {
-        let addFlashcardsLangLabel = createAnyElement("label", {
-            for: newDeckLanguages[i],
-        });
-        addFlashcardsLangLabel.innerHTML = newDeckLanguages[i];
+    for (let i = 0; i < deckLanguages.length; i++) {
+        if (deckLanguages[i] == "") {
+            continue;
+        } else {
+            let addFlashcardsLangLabel = createAnyElement("label", {
+                for: deckLanguages[i],
+            });
+            addFlashcardsLangLabel.innerHTML = deckLanguages[i];
 
-        let addFlashcardsLangInput = createAnyElement("input", {
-            type: "text",
-            id: newDeckLanguages[i],
-            name: newDeckLanguages[i],
-        });
+            let addFlashcardsLangInput = createAnyElement("input", {
+                type: "text",
+                id: deckLanguages[i],
+                name: deckLanguages[i],
+            });
 
-        colCenterBodyRowStorage[`label${i}`] = addFlashcardsLangLabel;
-        colCenterBodyRowStorage[`input${i}`] = addFlashcardsLangInput;
+            colCenterBodyRowStorage[`label${i}`] = addFlashcardsLangLabel;
+            colCenterBodyRowStorage[`input${i}`] = addFlashcardsLangInput;
+        }
     }
 
     colCenterBodyRowStorage.addFlashcardsSubmit = addFlashcardsSubmit;

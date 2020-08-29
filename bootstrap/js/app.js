@@ -2,10 +2,11 @@
 
 var flashCards = [];
 
+let emptyArray = [];
 var storedFlashCards = [];
 var editWord = [];
 
-let newDeckLanguages = [];
+let deckLanguages = [];
 
 // Store New Deck Labels and Inputs
 let colCenterBodyRowStorage = {};
@@ -15,9 +16,12 @@ var minusTwo = [];
 var minusOne = [];
 
 var flashcardshows;
-var flashcardIsClicked1 = false;
+
+var flashcardIsClicked = [false, false, false];
+
+/* var flashcardIsClicked1 = false;
 var flashcardIsClicked2 = false;
-var flashcardIsClicked3 = false;
+var flashcardIsClicked3 = false; */
 
 var flipCard1Clicked = false;
 var flipCard2Clicked = false;
@@ -25,7 +29,11 @@ var flipCard3Clicked = false;
 
 // Which flashcars was clicked
 
-function clickHandler1() {
+function clickHandler(number) {
+    flashcardIsClicked[number] = true;
+}
+
+/* function clickHandler1() {
     flashcardIsClicked1 = true;
 }
 
@@ -35,7 +43,7 @@ function clickHandler2() {
 
 function clickHandler3() {
     flashcardIsClicked3 = true;
-}
+} */
 
 // Flashcard flip functions
 
@@ -44,47 +52,57 @@ function flipCard1() {
     document.getElementById("card1").classList.toggle("is-flipped");
     document.getElementById("wordID0").style.display = "block";
 
-    flashcardIsClicked1 = false;
+    flashcardIsClicked[0] = false;
 }
 
 function flipCard2() {
     flipCard2Clicked = true;
-    if (flashcardIsClicked2 == true) {
+    if (flashcardIsClicked[1] == true) {
         return;
     } else {
         document.getElementById("card2").classList.toggle("is-flipped");
         document.getElementById("wordID1").style.display = "block";
 
-        flashcardIsClicked2 = false;
+        flashcardIsClicked[1] = false;
     }
 }
 
 function flipCard3() {
     flipCard3Clicked = true;
-    if (flashcardIsClicked3 == true) {
+    if (flashcardIsClicked[2] == true) {
         return;
     } else {
         document.getElementById("card3").classList.toggle("is-flipped");
         document.getElementById("wordID2").style.display = "block";
 
-        flashcardIsClicked3 = false;
+        flashcardIsClicked[2] = false;
     }
 }
 
 // Add flashcards
 
 function flashcardMaker() {
-    for (let i = 0; i < newDeckLanguages.length; i++) {
-        let language = document.getElementById(newDeckLanguages[i]).value;
-
-        storedFlashCards.push({
-            [newDeckLanguages[i]]: language,
-        });
-    }
-
     var inputs = document.querySelectorAll("input");
 
+    let flashcardValues = [];
+
+    for (let i = 0; i < deckLanguages.length; i++) {
+        let id = deckLanguages[i];
+        let language;
+
+        if (id == "") {
+            language = "";
+        } else {
+            language = document.querySelector(`#${id}`).value;
+        }
+
+        flashcardValues.push(language);
+    }
+
     storedFlashCards.push({
+        [deckLanguages[0]]: flashcardValues[0],
+        [deckLanguages[1]]: flashcardValues[1],
+        [deckLanguages[2]]: flashcardValues[2],
         youtube: "",
         ok: 0,
         repeat: 0,
@@ -103,11 +121,7 @@ function startFlashcard() {
     chooseDeck();
     removePara();
     randomWords();
-    if (storedFlashCards === null) {
-        localStorage.setItem("flashcards", JSON.stringify(flashCards));
-    } else {
-        storeCards();
-    }
+
     for (var i = 0; i < storedFlashCards.length; i++) {
         if (storedFlashCards[i].ok <= -3) {
             minusThreeLess.push(i);
@@ -124,9 +138,9 @@ function storeCards() {
 }
 
 function flashcardChecker(data) {
-    flashcardIsClicked1 = false;
-    flashcardIsClicked2 = false;
-    flashcardIsClicked3 = false;
+    flashcardIsClicked[0] = false;
+    flashcardIsClicked[1] = false;
+    flashcardIsClicked[2] = false;
 
     if (flipCard1Clicked == true) {
         flipCard1();
@@ -342,7 +356,31 @@ function monthChecker() {
 function writeWords(number) {
     this.number = number;
 
-    let language1 = storedFlashCards[this.number].magyar.split(",");
+    for (let i = 0; i < deckLanguages.length; i++) {
+        let language = storedFlashCards[this.number][deckLanguages[i]].split(
+            ","
+        );
+        for (let n = 0; n < language.length; n++) {
+            let para = document.createElement("p");
+            let node = document.createTextNode(language[n]);
+
+            para.appendChild(node);
+            let pronunc = document.createElement("a");
+            let pronuncnode = document.createTextNode("pronunciations");
+            pronunc.appendChild(pronuncnode);
+            pronunc.target = "_blank";
+            pronunc.href = "https://forvo.com/search/" + language[n];
+            pronunc.onclick = function () {
+                clickHandler(i);
+            };
+
+            let wordID = document.getElementById(`wordID${i}`);
+            wordID.appendChild(para);
+            wordID.appendChild(pronunc);
+        }
+    }
+
+    /* let language1 = storedFlashCards[this.number][deckLanguages[0]].split(",");
     for (let i = 0; i < language1.length; i++) {
         let para = document.createElement("p");
         let node = document.createTextNode(language1[i]);
@@ -350,7 +388,7 @@ function writeWords(number) {
         let wordID0 = document.getElementById("wordID0");
         wordID0.appendChild(para);
     }
-    let language2 = storedFlashCards[this.number].angol.split(",");
+    let language2 = storedFlashCards[this.number][deckLanguages[1]].split(",");
     for (let i = 0; i < language2.length; i++) {
         let para = document.createElement("p");
         let node = document.createTextNode(language2[i]);
@@ -365,7 +403,7 @@ function writeWords(number) {
         wordID1.appendChild(para);
         wordID1.appendChild(pronunc);
     }
-    let language3 = storedFlashCards[this.number].arab.split(",");
+    let language3 = storedFlashCards[this.number][deckLanguages[2]].split(",");
     for (let i = 0; i < language3.length; i++) {
         let para = document.createElement("p");
         let node = document.createTextNode(language3[i]);
@@ -379,5 +417,5 @@ function writeWords(number) {
         let wordID2 = document.getElementById("wordID2");
         wordID2.appendChild(para);
         wordID2.appendChild(pronunc);
-    }
+    } */
 }
