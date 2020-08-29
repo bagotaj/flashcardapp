@@ -6,8 +6,6 @@ let usedDeck;
 // kivalasztani, ha van mar
 
 function chooseDeck() {
-    /* deckLanguages = []; */
-
     deleteDecks();
 
     createChooseADeckList();
