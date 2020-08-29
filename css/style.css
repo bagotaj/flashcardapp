@@ -1,298 +1,179 @@
 * {
-  padding: 0;
-  margin: 0;
-  background-color: #f1f1f1;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 0;
+    margin: 0;
 }
 
 body {
-  width: 100%;
+    width: 100%;
+    padding-top: 50px;
 }
 
 p {
-  background-color: transparent;
+    background-color: transparent;
 }
 
-.zindex {
-  z-index: 1000;
+.menu-content {
+    position: absolute;
+    display: none;
 }
 
-.menu {
-  width: 100%;
-  background: #433a3e;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.menu-content-div div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: transparent;
 }
 
-.menu-list {
-  width: 50%;
-  background: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.menu-content label {
+    font-size: 1rem;
+    color: #212529;
+    text-transform: uppercase;
+    background: transparent;
 }
 
-.menu-div,
-.menu-space {
-  height: 50px;
-  padding: 0 15px 0 15px;
-  color: #fcfaf3;
-  display: flex;
-  align-items: center;
-  background: transparent;
-  font-size: 14px;
+.menu-content input {
+    border: none;
+    background-color: #f8f9fa;
+    margin: 0 0 20px 0;
 }
 
-.menu-div:hover {
-  background-color: #804746;
-}
-
-.informationline {
-  background: #804746;
-  width: 100%;
-  height: 120px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.choosedeck,
-.newdeck,
-.addflashcard {
-  overflow: hidden;
-  background: transparent;
-  color: #fcfaf3;
-}
-
-.newdeck-content {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: none;
-  width: 100%;
-  left: 0;
-  height: 120px;
-}
-
-.newdeck-content-div {
-  width: 50%;
-  height: 100%;
-  background: transparent;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background: none;
-  visibility: hidden;
-}
-
-.newdeck-content-div div {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background: transparent;
-}
-
-.newdeck-content button {
-  width: 120px;
-  height: 40px;
-  background: transparent;
-  border: none;
-  color: #fcfaf3;
-  font-size: 14px;
-  text-transform: uppercase;
-  background-color: #d84b50;
-  border-radius: 3px;
-  cursor: pointer;
-  margin: 20px;
-}
-
-.newdeck-content label {
-  margin-right: 10px;
-  color: #fcfaf3;
-  background: transparent;
-}
-
-.newdeck-content input {
-  margin-right: 20px;
+.menu-content button {
+    text-transform: uppercase;
+    margin: 10px 0 10px 0;
 }
 
 .choosedeck-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  z-index: 1001;
-  transition: all 0.3s ease-in-out;
+    font-size: 14px;
+    display: none;
+    position: absolute;
+    background-color: #f8f9fa;
+    min-width: 160px;
+    z-index: 1001;
+    transition: all 0.3s ease-in-out;
 }
 
 .choosedeck-content p {
-  color: #333545;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-transform: capitalize;
-  transition: all 0.3s ease-in-out;
+    color: #212529;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
 }
 
 .choosedeck-content p:hover {
-  background-color: #c2cbd1;
+    background-color: #c2cbd1;
 }
 
 .choosedeck:hover .choosedeck-content {
-  display: block;
+    display: block;
 }
 
 .addflashcard-content {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: none;
-  width: 100%;
-  left: 0;
-  height: 120px;
+    position: absolute;
+    display: none;
+    min-height: 120px;
 }
 
 .addflashcard-content-div {
-  width: 100%;
-  height: 120px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background: transparent;
-  visibility: hidden;
+    min-height: 120px;
+    background: transparent;
 }
 
 .addflashcard-content-div div {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background: transparent;
-}
-
-.addflashcard-content button {
-  width: 120px;
-  height: 40px;
-  background: none;
-  border: none;
-  color: #fcfaf3;
-  font-size: 14px;
-  text-transform: uppercase;
-  background-color: #d84b50;
-  border-radius: 3px;
-  cursor: pointer;
-  margin: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: transparent;
 }
 
 .addflashcard-content label {
-  margin-right: 10px;
-  color: #fcfaf3;
-  background: transparent;
+    font-size: 1rem;
+    color: #212529;
+    background: transparent;
 }
 
 .addflashcard-content input {
-  margin-right: 20px;
+    margin: 0 0 10px 0;
 }
 
-.center {
-  width: 100%;
-  height: 100%;
-  margin-top: 50px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.flashcard-margin {
+    margin-top: 45px;
 }
 
-.center div {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.okbutton,
-.idontknowbutton {
-  width: 150px;
-  height: 50px;
-  background: none;
-  border: none;
-  color: #fcfaf3;
-  font-size: 18px;
-  background-color: #05a6b0;
-  border-radius: 3px;
-  cursor: pointer;
-  margin: 20px;
-}
-
-.startbutton {
-  width: 150px;
-  height: 50px;
-  background: none;
-  border: none;
-  color: #fcfaf3;
-  font-size: 18px;
-  background-color: #d84b50;
-  border-radius: 3px;
-  cursor: pointer;
-  margin: 20px;
+.button-menu-margin {
+    margin-top: 30px;
 }
 
 .scene {
-  width: 300px;
-  height: 200px;
-  perspective: 800px;
+    margin-top: 5px;
+    height: 200px;
+    perspective: 800px;
 }
 
-.card {
-  width: 100%;
-  height: 100%;
-  transition: transform 1s;
-  transform-style: preserve-3d;
-  cursor: pointer;
-  position: relative;
-  background-color: transparent;
+.flip-card {
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+    background-color: transparent;
+    text-align: center;
 }
 
-.card.is-flipped {
-  transform: rotateY(180deg);
+.flip-card.is-flipped {
+    transform: rotateY(180deg);
 }
 
 .card_face {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  font-size: 20px;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    font-size: 16px;
+    text-transform: uppercase;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .card_face--front {
-  color: #fcfaf3;
-  background: #ccaead;
+    color: #fcfaf3;
+    background: #4da3ff;
 }
 
 .card_face--back {
-  color: #333545;
-  background: white;
-  transform: rotateY(180deg);
-  flex-direction: column;
+    color: #212529;
+    background: white;
+    transform: rotateY(180deg);
+    flex-direction: column;
 }
 
 .card_face--back a {
-  font-size: 12px;
-  color: #d84b50;
-  background: transparent;
+    font-size: 12px;
+    color: #d84b50;
+    background: transparent;
 }
 
 .card_face--back div {
-  background: transparent;
+    background: transparent;
 }
 
 .card_face--back p {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: transparent;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.center button {
+    margin: 10px;
 }

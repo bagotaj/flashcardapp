@@ -16,7 +16,7 @@
             crossorigin="anonymous"
         />
     </head>
-    <body onload="Start()">
+    <body onload="StartDatabase(flashcardsURLs[0])">
         <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
             <a class="navbar-brand" href="index.html">
                 <img
@@ -41,19 +41,19 @@
                     <li class="nav-item">
                         <a
                             class="nav-link"
-                            href="#"
+                            href="index.html"
                             onclick="menuChooser('newdeck')"
                             >NEW DECK</a
                         >
                     </li>
                     <li class="nav-item choosedeck">
-                        <a class="nav-link" href="#">CHOOSE A DECK</a>
+                        <a class="nav-link" href="index.html">CHOOSE A DECK</a>
                         <div class="choosedeck-content" id="choosedeck"></div>
                     </li>
                     <li class="nav-item">
                         <a
                             class="nav-link"
-                            href="#"
+                            href="index.html"
                             onclick="menuChooser('addflashcards')"
                             >ADD FLASHCARDS</a
                         >
@@ -160,90 +160,33 @@
             </div>
         </div>
 
-        <!-- 
-        <div class="menu-space">|</div>
-        <div class="menu-div" id="menu4">
-          HU / EN
-        </div>
-      </div>
-  
-  -->
-        <div id="siteBody" class="container">
+        <div class="container">
             <div class="container-fluid flashcard-margin">
                 <div class="row">
-                    <div class="col-12 col-md-4 themed-grid-col scene">
-                        <div class="flip-card" id="card1">
-                            <div class="card_face card_face--front">
-                                <p>
-                                    Magyar
-                                </p>
-                            </div>
-                            <div class="card_face card_face--back" id="magyar1">
-                                <div id="nyelv1"></div>
-                            </div>
-                        </div>
+                    <div class="col-12 col-md-1 themed-grid-col"></div>
+                    <div class="col-12 col-md-10 themed-grid-col">
+                        <table id="userTable" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Magyar</th>
+                                    <th>Angol</th>
+                                    <th>Arab</th>
+                                    <th>YouTube</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
                     </div>
-                    <div class="col-12 col-md-4 themed-grid-col scene">
-                        <div class="flip-card" id="card2">
-                            <div class="card_face card_face--front">
-                                <p>
-                                    English
-                                </p>
-                            </div>
-                            <div
-                                class="card_face card_face--back"
-                                id="english1"
-                            >
-                                <div id="nyelv2"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-4 themed-grid-col scene">
-                        <div class="flip-card" id="card3">
-                            <div class="card_face card_face--front">
-                                <p>
-                                    عربي
-                                </p>
-                            </div>
-                            <div class="card_face card_face--back" id="arabic1">
-                                <div id="nyelv3"></div>
-                                <p id="nyelv3youtube">YouTube</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container-fluid button-menu-margin">
-                    <div class="center">
-                        <button
-                            class="btn btn-danger"
-                            onclick="startFlashcard()"
-                        >
-                            Finish
-                        </button>
-
-                        <button
-                            class="btn btn-primary"
-                            onclick="flashcardChecker(true)"
-                        >
-                            Ok
-                        </button>
-
-                        <button
-                            class="btn btn-primary"
-                            onclick="flashcardChecker(false)"
-                        >
-                            I don't know
-                        </button>
-                    </div>
+                    <div class="col-12 col-md-1 themed-grid-col"></div>
                 </div>
             </div>
         </div>
-        <script src="./js/elementcreator.js"></script>
         <script src="./js/app.js"></script>
+        <script src="./js/database.js"></script>
         <script src="./js/menu.js"></script>
-        <script src="./js/index.js"></script>
-
+        <script src="./js/elementcreator.js"></script>
         <script
             src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
