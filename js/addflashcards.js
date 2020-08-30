@@ -52,3 +52,10 @@ function flashcardLabelInputCreator() {
 
     colCenterBodyRowStorage.addFlashcardsSubmit = addFlashcardsSubmit;
 }
+
+// Main function in chooosedeck.js
+
+function onclickAddFlashcards(i) {
+    whichDeck(i);
+    createBodyPart(createAddFlashcardsBody());
+}

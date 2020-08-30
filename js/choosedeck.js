@@ -8,7 +8,7 @@ let usedDeck;
 function chooseDeck() {
     deleteDecks();
 
-    createChooseADeckList();
+    createChooseADeckList("decklist", "choosedeck");
 }
 
 function whichDeck(index) {
@@ -16,6 +16,7 @@ function whichDeck(index) {
 
     if (storedFlashCards.length > 0) {
         storeCards();
+        storedFlashCards = [];
     }
 
     if (storedFlashCards.length == 0) {
@@ -35,7 +36,7 @@ function whichDeck(index) {
     }
 }
 
-function createChooseADeckList() {
+function createChooseADeckList(menu, id) {
     for (let i = 0; i < localStorage.length; i++) {
         keyNames.push(localStorage.key(i));
     }
@@ -45,13 +46,19 @@ function createChooseADeckList() {
         let node = document.createTextNode(keyNames[i]);
         para.appendChild(node);
         para.onclick = function () {
-            storedFlashCards = [];
-
-            whichDeck(i);
-            createFlashcardPage();
-            startFlashcard();
+            if (menu == "decklist") {
+                onclickChooseADeck(i);
+            } else {
+                onclickAddFlashcards(i);
+            }
         };
-        let deck = document.getElementById("choosedeck");
+        let deck = document.getElementById(id);
         deck.appendChild(para);
     }
+}
+
+function onclickChooseADeck(i) {
+    whichDeck(i);
+    createFlashcardPage();
+    startFlashcard();
 }

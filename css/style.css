@@ -69,34 +69,6 @@ p {
     display: block;
 }
 
-.addflashcard-content {
-    position: absolute;
-    display: none;
-    min-height: 120px;
-}
-
-.addflashcard-content-div {
-    min-height: 120px;
-    background: transparent;
-}
-
-.addflashcard-content-div div {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background: transparent;
-}
-
-.addflashcard-content label {
-    font-size: 1rem;
-    color: #212529;
-    background: transparent;
-}
-
-.addflashcard-content input {
-    margin: 0 0 10px 0;
-}
-
 .flashcard-margin {
     margin-top: 45px;
 }

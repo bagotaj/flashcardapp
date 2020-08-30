@@ -1,3 +1,8 @@
+function startApp() {
+    createChooseADeckList("decklist", "choosedeck");
+    createChooseADeckList("cardlist", "addflashcard");
+}
+
 let siteBody = document.querySelector("#siteBody");
 
 function createMainPage() {
@@ -13,7 +18,7 @@ function createMainPage() {
     });
     divRow.appendChild(colLeft);
 
-    let colCenterCols = createMainButtons();
+    let colCenterCols = createAlerts();
     divRow.appendChild(colCenterCols);
 
     let colRight = createAnyElement("div", {
@@ -25,40 +30,38 @@ function createMainPage() {
     siteBody.appendChild(div);
 }
 
-function createMainButtons() {
-    let divRowColCenter = createAnyElement("div", {
-        class: "row",
-    });
-
+function createAlerts() {
     let colCenter = createAnyElement("div", {
         class: "col-12 col-md-6 themed-grid-col",
     });
 
-    let buttonColLeft = createAnyElement("div", {
-        class: "col-12 col-md-6 themed-grid-col",
-    });
+    for (let i = 0; i < 3; i++) {
+        let alert = createAnyElement("div", {
+            class: "alert alert-primary alert-dismissible fade show",
+            role: "alert",
+        });
+        alert.innerHTML = magyar[`alert${i}`];
+        let button = createAnyElement("button", {
+            type: "button",
+            class: "close",
+            "data-dismiss": "alert",
+            "aria-label": "Close",
+        });
+        let span = createAnyElement("span", {
+            "aria-hidden": "true",
+        });
+        span.innerHTML = "&times;";
 
-    let buttonColRight = createAnyElement("div", {
-        class: "col-12 col-md-6 themed-grid-col",
-    });
+        button.appendChild(span);
+        alert.appendChild(button);
 
-    let buttonNewDeck = createAnyElement("button", {
-        type: "button",
-        class: "btn btn-primary bt-lg",
-    });
-    buttonNewDeck.innerHTML = "Make a new Deck";
-    buttonColLeft.appendChild(buttonNewDeck);
+        let divRowColCenter = createAnyElement("div", {
+            class: "row",
+        });
 
-    let buttonChoseDeck = createAnyElement("button", {
-        type: "button",
-        class: "btn btn-primary bt-lg",
-    });
-    buttonChoseDeck.innerHTML = "Choose a Deck";
-    buttonColRight.appendChild(buttonChoseDeck);
-
-    divRowColCenter.appendChild(buttonColLeft);
-    divRowColCenter.appendChild(buttonColRight);
-    colCenter.appendChild(divRowColCenter);
+        divRowColCenter.appendChild(alert);
+        colCenter.appendChild(divRowColCenter);
+    }
 
     return colCenter;
 }

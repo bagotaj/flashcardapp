@@ -19,10 +19,6 @@ var flashcardshows;
 
 var flashcardIsClicked = [false, false, false];
 
-/* var flashcardIsClicked1 = false;
-var flashcardIsClicked2 = false;
-var flashcardIsClicked3 = false; */
-
 var flipCard1Clicked = false;
 var flipCard2Clicked = false;
 var flipCard3Clicked = false;
@@ -32,18 +28,6 @@ var flipCard3Clicked = false;
 function clickHandler(number) {
     flashcardIsClicked[number] = true;
 }
-
-/* function clickHandler1() {
-    flashcardIsClicked1 = true;
-}
-
-function clickHandler2() {
-    flashcardIsClicked2 = true;
-}
-
-function clickHandler3() {
-    flashcardIsClicked3 = true;
-} */
 
 // Flashcard flip functions
 
