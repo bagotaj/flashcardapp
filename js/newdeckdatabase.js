@@ -10,7 +10,8 @@ function newDeck() {
         storeCards();
     }
 
-    deleteDecks();
+    deleteDecks("choosedeck");
+    deleteDecks("addflashcard");
 
     let newDeckName = document.querySelector("#adddeck").value;
 
@@ -20,9 +21,19 @@ function newDeck() {
         deckLanguages.push(newDeckLanguage);
     }
 
-    localStorage.setItem(newDeckName, JSON.stringify(emptyArray));
+    storedFlashCards.push({
+        [deckLanguages[0]]: "",
+        [deckLanguages[1]]: "",
+        [deckLanguages[2]]: "",
+        youtube: "",
+        ok: 0,
+        repeat: 0,
+    });
 
-    createChooseADeckList();
+    localStorage.setItem(newDeckName, JSON.stringify(storedFlashCards));
+
+    createChooseADeckList("decklist", "choosedeck");
+    createChooseADeckList("cardlist", "addflashcard");
 
     for (let i = 0; i < localStorage.length; i++) {
         if (localStorage.key(i) == newDeckName) {
@@ -35,8 +46,8 @@ function newDeck() {
     inputs.forEach((input) => (input.value = ""));
 }
 
-function deleteDecks() {
-    let deck = document.getElementById("choosedeck");
+function deleteDecks(wichdecklist) {
+    let deck = document.getElementById(wichdecklist);
     let para1 = deck.getElementsByTagName("P");
     for (let i = para1.length - 1; i >= 0; i--) {
         var p = para1[i];

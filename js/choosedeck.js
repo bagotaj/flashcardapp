@@ -6,9 +6,11 @@ let usedDeck;
 // kivalasztani, ha van mar
 
 function chooseDeck() {
-    deleteDecks();
+    deleteDecks("choosedeck");
+    deleteDecks("addflashcard");
 
     createChooseADeckList("decklist", "choosedeck");
+    createChooseADeckList("cardlist", "addflashcard");
 }
 
 function whichDeck(index) {
@@ -38,7 +40,11 @@ function whichDeck(index) {
 
 function createChooseADeckList(menu, id) {
     for (let i = 0; i < localStorage.length; i++) {
-        keyNames.push(localStorage.key(i));
+        if (keyNames.length >= localStorage.length) {
+            continue;
+        } else {
+            keyNames.push(localStorage.key(i));
+        }
     }
 
     for (let i = 0; i < keyNames.length; i++) {

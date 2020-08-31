@@ -83,14 +83,24 @@ function flashcardMaker() {
         flashcardValues.push(language);
     }
 
-    storedFlashCards.push({
-        [deckLanguages[0]]: flashcardValues[0],
-        [deckLanguages[1]]: flashcardValues[1],
-        [deckLanguages[2]]: flashcardValues[2],
-        youtube: "",
-        ok: 0,
-        repeat: 0,
-    });
+    if (
+        storedFlashCards[0][deckLanguages[0]] == "" &&
+        storedFlashCards[0][deckLanguages[1]] == "" &&
+        storedFlashCards[0][deckLanguages[2]] == ""
+    ) {
+        for (let i = 0; i < 3; i++) {
+            storedFlashCards[0][deckLanguages[i]] = flashcardValues[i];
+        }
+    } else {
+        storedFlashCards.push({
+            [deckLanguages[0]]: flashcardValues[0],
+            [deckLanguages[1]]: flashcardValues[1],
+            [deckLanguages[2]]: flashcardValues[2],
+            youtube: "",
+            ok: 0,
+            repeat: 0,
+        });
+    }
 
     inputs.forEach((input) => (input.value = ""));
 
