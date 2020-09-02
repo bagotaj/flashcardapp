@@ -1,8 +1,6 @@
 // Some parts of the code are in menu.js
+let flashCards = [];
 
-var flashCards = [];
-
-let emptyArray = [];
 var storedFlashCards = [];
 var editWord = [];
 
@@ -93,6 +91,7 @@ function flashcardMaker() {
         }
     } else {
         storedFlashCards.push({
+            /* cardID: "", */
             [deckLanguages[0]]: flashcardValues[0],
             [deckLanguages[1]]: flashcardValues[1],
             [deckLanguages[2]]: flashcardValues[2],

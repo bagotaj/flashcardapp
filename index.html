@@ -17,7 +17,7 @@
         />
     </head>
     <body onload="startApp()">
-        <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
+        <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
             <a class="navbar-brand" href="index.html">
                 <img
                     src="logodesign.svg"
@@ -57,12 +57,29 @@
                     <li class="nav-item">
                         <a class="nav-link" href="database.html">DATABASE</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">HU</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">ENG</a>
+                    </li>
                 </ul>
             </div>
         </nav>
 
+        <div class="container-fluid usedLanguagebar">
+            <!-- <div class="container-fluid"> -->
+            <div class="row menu-content-div">
+                <div class="col-sm">
+                    <p id="usedLanguage"></p>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+
         <div id="siteBody" class="container"></div>
 
+        <script src="./js/usedLanguage.js"></script>
         <script src="./js/language.js"></script>
         <script src="./js/databasemanipulation.js"></script>
         <script src="./js/flashcardpage.js"></script>

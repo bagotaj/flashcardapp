@@ -42,6 +42,11 @@ p {
     margin: 10px 0 10px 0;
 }
 
+.usedLanguagebar {
+    padding-top: 16px;
+    background-color: #f8f9fa;
+}
+
 .choosedeck-content {
     font-size: 14px;
     display: none;

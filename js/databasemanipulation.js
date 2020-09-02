@@ -1,3 +1,12 @@
+function getFlashcardsFromLocalStorage() {
+    flashCards = localStorage.getItem("Flashcards");
+    flashCards = JSON.parse(flashCards);
+}
+
+function setFlashcardstoLocalStorage() {
+    localStorage.setItem("Flashcards", JSON.stringify(flashCards));
+}
+
 function storeCards() {
     localStorage.setItem(keyNames[usedDeck], JSON.stringify(storedFlashCards));
 }

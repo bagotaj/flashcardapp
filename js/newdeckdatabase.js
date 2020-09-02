@@ -22,6 +22,7 @@ function newDeck() {
     }
 
     storedFlashCards.push({
+        /* cardID: "", */
         [deckLanguages[0]]: "",
         [deckLanguages[1]]: "",
         [deckLanguages[2]]: "",
@@ -44,6 +45,8 @@ function newDeck() {
     storedFlashCards = [];
 
     inputs.forEach((input) => (input.value = ""));
+
+    usedLanguage();
 }
 
 function deleteDecks(wichdecklist) {

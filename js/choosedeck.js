@@ -35,6 +35,8 @@ function whichDeck(index) {
         }
 
         usedDeck = index;
+
+        usedLanguage();
     }
 }
 

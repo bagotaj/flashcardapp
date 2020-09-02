@@ -1,4 +1,6 @@
 function startApp() {
+    getFlashcardsFromLocalStorage();
+
     createChooseADeckList("decklist", "choosedeck");
     createChooseADeckList("cardlist", "addflashcard");
 }
