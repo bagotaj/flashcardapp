@@ -23,7 +23,7 @@ let english = {
     menu1: "choose a deck",
     menu2: "add flashcards",
     menu3: "database",
-    alert0: "Klikk az Új Pakli menüre.",
-    alert1: "Adj hozzá szókártyákat. Menü - Szókártya hozzáadása",
-    alert2: "Válaszd ki a paklit. Menü - Pakliválasztás",
+    alert0: "Click to NEW DECK.",
+    alert1: "Add a new flashcard. Menu - ADD FLASHCARDS",
+    alert2: "Choose a deck. Menu - CHOOSE A DECK",
 };

@@ -1,7 +1,7 @@
 // Keys of flashcards
 
-let keys = ["id", "magyar", "angol", "arab", "youtube"];
-let flashcardsURLs = [
+let basekeys = ["id", "youtube", "action"];
+/* let flashcardsURLs = [
     "https://my-json-server.typicode.com/bagotaj/flashcardapp/arabwords",
     "https://my-json-server.typicode.com/bagotaj/flashcardapp/englishwords",
 ];
@@ -22,35 +22,37 @@ function startGetFlashcards(url) {
         (response) => response.json(),
         (err) => alert("We have a little problem with the Database" + err)
     );
-}
+} */
 
-// Fill table with server data
+// Fill table with localStorage data
 
-function fillDataTable(data, tableID) {
-    let table = document.querySelector("#userTable");
-
+function fillDataTable() {
     // Add new user row to the table
 
     let tBody = document.querySelector("tbody");
     tBody.innerHTML = "";
 
-    for (let row of data) {
+    for (let row of storedFlashCards) {
         let tr = createAnyElement("tr");
 
         for (let k of keys) {
-            let td = createAnyElement("td");
-            let input = createAnyElement("input", {
-                class: "form-control",
-                name: k,
-                value: row[k],
-            });
+            if (k == "action") {
+                continue;
+            } else {
+                let td = createAnyElement("td");
+                let input = createAnyElement("input", {
+                    class: "form-control",
+                    name: k,
+                    value: row[k],
+                });
 
-            if (k == "id") {
-                input.setAttribute("readonly", true);
+                if (k == "id") {
+                    input.setAttribute("readonly", true);
+                }
+
+                td.appendChild(input);
+                tr.appendChild(td);
             }
-
-            td.appendChild(input);
-            tr.appendChild(td);
         }
         let buttonGroup = createBtnGroup();
         tr.appendChild(buttonGroup);

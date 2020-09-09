@@ -8,9 +8,11 @@ let usedDeck;
 function chooseDeck() {
     deleteDecks("choosedeck");
     deleteDecks("addflashcard");
+    deleteDecks("database");
 
     createChooseADeckList("decklist", "choosedeck");
     createChooseADeckList("cardlist", "addflashcard");
+    createChooseADeckList("databaselist", "database");
 }
 
 function whichDeck(index) {
@@ -56,6 +58,8 @@ function createChooseADeckList(menu, id) {
         para.onclick = function () {
             if (menu == "decklist") {
                 onclickChooseADeck(i);
+            } else if (menu == "databaselist") {
+                onclickDatabase(i);
             } else {
                 onclickAddFlashcards(i);
             }

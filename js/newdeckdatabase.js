@@ -8,10 +8,13 @@ function newDeck() {
 
     if (storedFlashCards.length > 0) {
         storeCards();
+
+        storedFlashCards = [];
     }
 
     deleteDecks("choosedeck");
     deleteDecks("addflashcard");
+    deleteDecks("database");
 
     let newDeckName = document.querySelector("#adddeck").value;
 
@@ -35,6 +38,7 @@ function newDeck() {
 
     createChooseADeckList("decklist", "choosedeck");
     createChooseADeckList("cardlist", "addflashcard");
+    createChooseADeckList("databaselist", "database");
 
     for (let i = 0; i < localStorage.length; i++) {
         if (localStorage.key(i) == newDeckName) {

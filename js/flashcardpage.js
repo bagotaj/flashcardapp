@@ -91,12 +91,6 @@ function createButtonRow() {
         class: "center",
     });
 
-    let buttonFinish = createAnyElement("button", {
-        class: "btn btn-danger",
-        onclick: "startFlashcard()",
-    });
-    buttonFinish.innerHTML = "Finish";
-
     let buttonOK = createAnyElement("button", {
         class: "btn btn-primary",
         onclick: "flashcardChecker(true)",
@@ -104,12 +98,11 @@ function createButtonRow() {
     buttonOK.innerHTML = "Ok";
 
     let buttonIdontKnow = createAnyElement("button", {
-        class: "btn btn-primary",
+        class: "btn btn-danger",
         onclick: "flashcardChecker(false)",
     });
     buttonIdontKnow.innerHTML = "I don't know";
 
-    divButtonCenter.appendChild(buttonFinish);
     divButtonCenter.appendChild(buttonOK);
     divButtonCenter.appendChild(buttonIdontKnow);
 

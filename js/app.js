@@ -5,6 +5,7 @@ var storedFlashCards = [];
 var editWord = [];
 
 let deckLanguages = [];
+let keys = [];
 
 // Store New Deck Labels and Inputs
 let colCenterBodyRowStorage = {};

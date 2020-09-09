@@ -3,6 +3,7 @@ function startApp() {
 
     createChooseADeckList("decklist", "choosedeck");
     createChooseADeckList("cardlist", "addflashcard");
+    createChooseADeckList("databaselist", "database");
 }
 
 let siteBody = document.querySelector("#siteBody");
@@ -42,7 +43,7 @@ function createAlerts() {
             class: "alert alert-primary alert-dismissible fade show",
             role: "alert",
         });
-        alert.innerHTML = magyar[`alert${i}`];
+        alert.innerHTML = english[`alert${i}`];
         let button = createAnyElement("button", {
             type: "button",
             class: "close",
