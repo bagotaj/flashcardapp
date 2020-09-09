@@ -92,7 +92,7 @@ function flashcardMaker() {
         }
     } else {
         storedFlashCards.push({
-            /* cardID: "", */
+            cardID: "",
             [deckLanguages[0]]: flashcardValues[0],
             [deckLanguages[1]]: flashcardValues[1],
             [deckLanguages[2]]: flashcardValues[2],

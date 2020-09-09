@@ -40,6 +40,11 @@ function fillDataTable() {
                 continue;
             } else {
                 let td = createAnyElement("td");
+
+                if (row[k] == undefined) {
+                    row[k] = "";
+                }
+
                 let input = createAnyElement("input", {
                     class: "form-control",
                     name: k,
@@ -83,4 +88,9 @@ function createBtnGroup() {
     td.appendChild(group);
 
     return td;
+}
+
+function databaseModifier(whattodo) {
+    if (whattodo == modify) {
+    }
 }
