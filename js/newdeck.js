@@ -1,4 +1,6 @@
 function createNewDeckBody() {
+    usedLanguage();
+
     colCenterBodyRowStorage = {};
 
     createNewDeckLabelInput();

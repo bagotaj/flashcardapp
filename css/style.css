@@ -47,6 +47,25 @@ p {
     background-color: #f8f9fa;
 }
 
+.blinking {
+    animation: blinker 3s linear infinite;
+    cursor: pointer;
+}
+
+.blinking:hover {
+    font-weight: bold;
+}
+
+.blinking span {
+    font-size: 0.7rem;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
 .choosedeck-content {
     font-size: 14px;
     display: none;

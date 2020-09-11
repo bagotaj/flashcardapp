@@ -15,7 +15,7 @@ function chooseDeck() {
     createChooseADeckList("databaselist", "database");
 }
 
-function whichDeck(index) {
+function whichDeck(index, saveoption) {
     deckLanguages = [];
 
     if (storedFlashCards.length > 0) {
@@ -32,13 +32,13 @@ function whichDeck(index) {
             keys.push(k);
         }
 
-        for (let i = 0; i < 3; i++) {
+        for (let i = 1; i < 4; i++) {
             deckLanguages.push(keys[i]);
         }
 
         usedDeck = index;
 
-        usedLanguage();
+        usedLanguage(saveoption);
     }
 }
 
@@ -70,7 +70,7 @@ function createChooseADeckList(menu, id) {
 }
 
 function onclickChooseADeck(i) {
-    whichDeck(i);
+    whichDeck(i, choosedeck);
     createFlashcardPage();
     startFlashcard();
 }
