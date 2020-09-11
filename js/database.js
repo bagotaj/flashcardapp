@@ -1,6 +1,6 @@
 // Keys of flashcards
 
-let basekeys = ["cardID", "youtube", "action"];
+let basekeys = ["cardID", "action"];
 /* let flashcardsURLs = [
     "https://my-json-server.typicode.com/bagotaj/flashcardapp/arabwords",
     "https://my-json-server.typicode.com/bagotaj/flashcardapp/englishwords",
@@ -115,4 +115,12 @@ function getRowData(tr) {
     }
 
     return data;
+}
+
+// Sort Database elements
+
+function sortDatabaseElements(whichpart) {
+    storedFlashCards.sort((a, b) => (a[whichpart] > b[whichpart] ? 1 : -1));
+
+    fillDataTable();
 }

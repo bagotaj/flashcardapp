@@ -43,10 +43,20 @@ function createColDivCenter() {
     let tr = createAnyElement("tr");
 
     for (let i = 0; i < keys.length; i++) {
-        let th = createAnyElement("th");
-        th.innerHTML = keys[i];
-
-        tr.appendChild(th);
+        if (keys[i] == "action") {
+            let th = createAnyElement("th");
+            th.innerHTML = keys[i];
+            tr.appendChild(th);
+        } else {
+            let th = createAnyElement("th", {
+                class: "cursor",
+            });
+            th.innerHTML = keys[i];
+            th.onclick = function () {
+                sortDatabaseElements(keys[i]);
+            };
+            tr.appendChild(th);
+        }
     }
 
     thead.appendChild(tr);
@@ -78,7 +88,5 @@ function createKeys() {
         }
     }
 
-    for (let i = 1; i < 3; i++) {
-        keys.push(basekeys[i]);
-    }
+    keys.push(basekeys[1]);
 }

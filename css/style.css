@@ -12,6 +12,10 @@ p {
     background-color: transparent;
 }
 
+th.cursor {
+    cursor: pointer;
+}
+
 .menu-content {
     position: absolute;
     display: none;

@@ -125,12 +125,14 @@ function startFlashcard() {
             minusOne.push(i);
         }
     }
+
+    storedFlashCards.sort((a, b) => (a.ok > b.ok ? 1 : -1));
 }
 
 function flashcardChecker(data) {
-    flashcardIsClicked[0] = false;
-    flashcardIsClicked[1] = false;
-    flashcardIsClicked[2] = false;
+    for (let i = 0; i < 3; i++) {
+        flashcardIsClicked[i] = false;
+    }
 
     if (flipCard1Clicked == true) {
         flipCard1();
