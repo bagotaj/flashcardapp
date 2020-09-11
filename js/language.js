@@ -13,6 +13,8 @@ let magyar = {
     alert2: "Válaszd ki a paklit. Menü - Pakliválasztás",
 };
 
+/* "Készítsd el az első szókártyacsomagot". */
+
 let english = {
     menu0: "new deck",
     menudeck0: "name of new deck",

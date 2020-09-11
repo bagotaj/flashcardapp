@@ -32,10 +32,14 @@ function clickHandler(number) {
 
 function flipCard1() {
     flipCard1Clicked = true;
-    document.getElementById("card1").classList.toggle("is-flipped");
-    document.getElementById("wordID0").style.display = "block";
+    if (flashcardIsClicked[0] == true) {
+        return;
+    } else {
+        document.getElementById("card1").classList.toggle("is-flipped");
+        document.getElementById("wordID0").style.display = "block";
 
-    flashcardIsClicked[0] = false;
+        flashcardIsClicked[0] = false;
+    }
 }
 
 function flipCard2() {
@@ -126,6 +130,7 @@ function startFlashcard() {
         }
     }
 
+    // Part of the new flashcard checking method
     storedFlashCards.sort((a, b) => (a.ok > b.ok ? 1 : -1));
 }
 
