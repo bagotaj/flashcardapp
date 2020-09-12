@@ -53,6 +53,8 @@ function createChooseADeckList(menu, id) {
 
     for (let i = 0; i < keyNames.length; i++) {
         let para = document.createElement("p");
+        para.setAttribute("data-toggle", "collapse");
+        para.setAttribute("data-target", ".navbar-collapse.show");
         let node = document.createTextNode(keyNames[i]);
         para.appendChild(node);
         para.onclick = function () {
