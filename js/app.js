@@ -18,9 +18,7 @@ var flashcardshows;
 
 var flashcardIsClicked = [false, false, false];
 
-var flipCard1Clicked = false;
-var flipCard2Clicked = false;
-var flipCard3Clicked = false;
+let flipCardsClicked = [false, false, false];
 
 // Which flashcars was clicked
 
@@ -30,85 +28,16 @@ function clickHandler(number) {
 
 // Flashcard flip functions
 
-function flipCard1() {
-    flipCard1Clicked = true;
-    if (flashcardIsClicked[0] == true) {
+function flipCard(i) {
+    flipCardsClicked[i] = true;
+    if (flashcardIsClicked[i] == true) {
         return;
     } else {
-        document.getElementById("card1").classList.toggle("is-flipped");
-        document.getElementById("wordID0").style.display = "block";
+        document.getElementById(`card${i + 1}`).classList.toggle("is-flipped");
+        document.getElementById(`wordID${i}`).style.display = "block";
 
-        flashcardIsClicked[0] = false;
+        flashcardIsClicked[i] = false;
     }
-}
-
-function flipCard2() {
-    flipCard2Clicked = true;
-    if (flashcardIsClicked[1] == true) {
-        return;
-    } else {
-        document.getElementById("card2").classList.toggle("is-flipped");
-        document.getElementById("wordID1").style.display = "block";
-
-        flashcardIsClicked[1] = false;
-    }
-}
-
-function flipCard3() {
-    flipCard3Clicked = true;
-    if (flashcardIsClicked[2] == true) {
-        return;
-    } else {
-        document.getElementById("card3").classList.toggle("is-flipped");
-        document.getElementById("wordID2").style.display = "block";
-
-        flashcardIsClicked[2] = false;
-    }
-}
-
-// Add flashcards
-
-function flashcardMaker() {
-    var inputs = document.querySelectorAll("input");
-
-    let flashcardValues = [];
-
-    for (let i = 0; i < deckLanguages.length; i++) {
-        let id = deckLanguages[i];
-        let language;
-
-        if (id == "") {
-            language = "";
-        } else {
-            language = document.querySelector(`#${id}`).value;
-        }
-
-        flashcardValues.push(language);
-    }
-
-    if (
-        storedFlashCards[0][deckLanguages[0]] == "" &&
-        storedFlashCards[0][deckLanguages[1]] == "" &&
-        storedFlashCards[0][deckLanguages[2]] == ""
-    ) {
-        for (let i = 0; i < 3; i++) {
-            storedFlashCards[0][deckLanguages[i]] = flashcardValues[i];
-        }
-    } else {
-        storedFlashCards.push({
-            cardID: "",
-            [deckLanguages[0]]: flashcardValues[0],
-            [deckLanguages[1]]: flashcardValues[1],
-            [deckLanguages[2]]: flashcardValues[2],
-            youtube: "",
-            ok: 0,
-            repeat: 0,
-        });
-    }
-
-    inputs.forEach((input) => (input.value = ""));
-
-    storeCards();
 }
 
 function startFlashcard() {
@@ -139,7 +68,18 @@ function flashcardChecker(data) {
         flashcardIsClicked[i] = false;
     }
 
-    if (flipCard1Clicked == true) {
+    for (let i = 0; i < deckLanguages.length; i++) {
+        if (deckLanguages[i] == "") {
+            continue;
+        } else {
+            if (flipCardsClicked[i] == true) {
+                flipCard(i);
+                flipCardsClicked[i] = false;
+            }
+        }
+    }
+
+    /* if (flipCard1Clicked == true) {
         flipCard1();
         flipCard1Clicked = false;
     }
@@ -152,7 +92,7 @@ function flashcardChecker(data) {
     if (flipCard3Clicked == true) {
         flipCard3();
         flipCard3Clicked = false;
-    }
+    } */
 
     removePara();
     hideFlashcards();

@@ -59,3 +59,48 @@ function onclickAddFlashcards(i) {
     whichDeck(i);
     createBodyPart(createAddFlashcardsBody());
 }
+
+// Add flashcards
+
+function flashcardMaker() {
+    var inputs = document.querySelectorAll("input");
+
+    let flashcardValues = [];
+
+    for (let i = 0; i < deckLanguages.length; i++) {
+        let id = deckLanguages[i];
+        let language;
+
+        if (id == "") {
+            language = "";
+        } else {
+            language = document.querySelector(`#${id}`).value;
+        }
+
+        flashcardValues.push(language);
+    }
+
+    if (
+        storedFlashCards[0][deckLanguages[0]] == "" &&
+        storedFlashCards[0][deckLanguages[1]] == "" &&
+        storedFlashCards[0][deckLanguages[2]] == ""
+    ) {
+        for (let i = 0; i < 3; i++) {
+            storedFlashCards[0][deckLanguages[i]] = flashcardValues[i];
+        }
+    } else {
+        storedFlashCards.push({
+            cardID: storedFlashCards.length + 1,
+            [deckLanguages[0]]: flashcardValues[0],
+            [deckLanguages[1]]: flashcardValues[1],
+            [deckLanguages[2]]: flashcardValues[2],
+            youtube: "",
+            ok: 0,
+            repeat: 0,
+        });
+    }
+
+    inputs.forEach((input) => (input.value = ""));
+
+    storeCards();
+}

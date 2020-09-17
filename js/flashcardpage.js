@@ -40,7 +40,7 @@ function createFlashcard(classcolsize, index) {
     let flipCardDiv = createAnyElement("div", {
         class: "flip-card",
         id: `card${index + 1}`,
-        onclick: `flipCard${index + 1}()`,
+        onclick: `flipCard(${index})`,
     });
     let flashcardFront = createFlipCardFrontElement(deckLanguages[index]);
     let flachcardBack = createFlipCardBackElement(
