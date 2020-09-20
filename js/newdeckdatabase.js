@@ -25,7 +25,7 @@ function newDeck() {
     }
 
     storedFlashCards.push({
-        cardID: "",
+        cardID: storedFlashCards.length + 1,
         [deckLanguages[0]]: "",
         [deckLanguages[1]]: "",
         [deckLanguages[2]]: "",

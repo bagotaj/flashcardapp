@@ -10,9 +10,7 @@ let keys = [];
 // Store New Deck Labels and Inputs
 let colCenterBodyRowStorage = {};
 
-var minusThreeLess = [];
-var minusTwo = [];
-var minusOne = [];
+let minusOKinFlashcardDatabase = [];
 
 var flashcardshows;
 
@@ -41,26 +39,20 @@ function flipCard(i) {
 }
 
 function startFlashcard() {
-    minusThreeLess = [];
-    minusTwo = [];
-    minusOne = [];
+    minusOKinFlashcardDatabase = [];
 
     chooseDeck();
     removePara();
     randomWords();
 
-    for (var i = 0; i < storedFlashCards.length; i++) {
-        if (storedFlashCards[i].ok <= -3) {
-            minusThreeLess.push(i);
-        } else if (storedFlashCards[i].ok == -2) {
-            minusTwo.push(i);
-        } else if (storedFlashCards[i].ok == -1) {
-            minusOne.push(i);
-        }
-    }
-
     // Part of the new flashcard checking method
     storedFlashCards.sort((a, b) => (a.ok > b.ok ? 1 : -1));
+
+    for (var i = 0; i < storedFlashCards.length; i++) {
+        if (storedFlashCards[i].ok < 0) {
+            minusOKinFlashcardDatabase.push(i);
+        }
+    }
 }
 
 function flashcardChecker(data) {
@@ -78,21 +70,6 @@ function flashcardChecker(data) {
             }
         }
     }
-
-    /* if (flipCard1Clicked == true) {
-        flipCard1();
-        flipCard1Clicked = false;
-    }
-
-    if (flipCard2Clicked == true) {
-        flipCard2();
-        flipCard2Clicked = false;
-    }
-
-    if (flipCard3Clicked == true) {
-        flipCard3();
-        flipCard3Clicked = false;
-    } */
 
     removePara();
     hideFlashcards();
@@ -156,32 +133,15 @@ function randomWords() {
 
     var number = Math.floor(Math.random() * storedFlashCards.length);
     var number2 = Math.floor(Math.random() * storedFlashCards.length);
-    var number33 = Math.floor(Math.random() * minusThreeLess.length);
-    var number32 = Math.floor(Math.random() * minusTwo.length);
-    var number31 = Math.floor(Math.random() * minusOne.length);
     editWord.push(number);
 
     var month = monthChecker();
     var d = new Date().getDate();
 
-    if (minusThreeLess.length > 0) {
-        let arraynumber3 = minusThreeLess[number33];
-        writeWords(arraynumber3);
-        editWord = [];
-        editWord.push(arraynumber3);
-        minusThreeLess.splice(number33, 1);
-    } else if (minusTwo.length > 0) {
-        let arraynumber2 = minusTwo[number32];
-        writeWords(arraynumber2);
-        editWord = [];
-        editWord.push(arraynumber2);
-        minusTwo.splice(number32, 1);
-    } else if (minusOne.length > 0) {
-        let arraynumber1 = minusOne[number31];
-        writeWords(arraynumber1);
-        editWord = [];
-        editWord.push(arraynumber1);
-        minusOne.splice(number31, 1);
+    if (minusOKinFlashcardDatabase.length > 0) {
+        writeWords(minusOKinFlashcardDatabase[0]);
+
+        minusOKinFlashcardDatabase.shift();
     } else if (storedFlashCards[number].ok == 0) {
         writeWords(number);
     } else if (storedFlashCards[number].ok == 1) {
@@ -239,15 +199,15 @@ function monthChecker() {
 }
 
 function writeWords(number) {
-    this.number = number;
+    /* this.number = number; */
 
     for (let i = 0; i < deckLanguages.length; i++) {
         if (deckLanguages[i] == "") {
             continue;
         } else {
-            let language = storedFlashCards[this.number][
-                deckLanguages[i]
-            ].split(",");
+            let language = storedFlashCards[number][deckLanguages[i]].split(
+                ","
+            );
             for (let n = 0; n < language.length; n++) {
                 let para = document.createElement("p");
                 let node = document.createTextNode(language[n]);
