@@ -34,19 +34,19 @@ function clickHandler3() {
 
 // Flashcard clicking elements
 
-var cardOne = document.getElementById("card1");
+/* var cardOne = document.getElementById("card1");
 cardOne.addEventListener("click", flipCard1);
 
 var cardTwo = document.getElementById("card2");
 cardTwo.addEventListener("click", flipCard2);
 
 var cardThree = document.getElementById("card3");
-cardThree.addEventListener("click", flipCard3);
+cardThree.addEventListener("click", flipCard3); */
 
 function flipCard1() {
     flipCard1Clicked = true;
     document.getElementById("card1").classList.toggle("is-flipped");
-    document.getElementById("nyelv1").style.display = "block";
+    document.getElementById("wordID0").style.display = "block";
 
     flashcardIsClicked1 = false;
 }
@@ -57,7 +57,7 @@ function flipCard2() {
         return;
     } else {
         document.getElementById("card2").classList.toggle("is-flipped");
-        document.getElementById("nyelv2").style.display = "block";
+        document.getElementById("wordID1").style.display = "block";
 
         flashcardIsClicked2 = false;
     }
@@ -69,8 +69,7 @@ function flipCard3() {
         return;
     } else {
         document.getElementById("card3").classList.toggle("is-flipped");
-        document.getElementById("nyelv3").style.display = "block";
-        document.getElementById("nyelv3youtube").style.display = "block";
+        document.getElementById("wordID2").style.display = "block";
 
         flashcardIsClicked3 = false;
     }
@@ -128,7 +127,6 @@ function startFlashcard() {
     if (storedFlashCards === null) {
         localStorage.setItem("flashcards", JSON.stringify(flashCards));
     } else {
-        console.log(usedDeck);
         storeCards();
     }
     for (var i = 0; i < storedFlashCards.length; i++) {
@@ -221,16 +219,16 @@ function flashcardChecker(data) {
 }
 
 function removePara() {
-    let nyelv1 = document.getElementById("nyelv1");
-    let para1 = nyelv1.getElementsByTagName("P");
+    let wordID0 = document.getElementById("wordID0");
+    let para1 = wordID0.getElementsByTagName("P");
     for (let i = para1.length - 1; i >= 0; i--) {
         var p = para1[i];
         p.parentNode.removeChild(p);
     }
 
-    let nyelv2 = document.getElementById("nyelv2");
-    let para2p = nyelv2.getElementsByTagName("P");
-    let para2a = nyelv2.getElementsByTagName("A");
+    let wordID1 = document.getElementById("wordID1");
+    let para2p = wordID1.getElementsByTagName("P");
+    let para2a = wordID1.getElementsByTagName("A");
     for (let i = para2p.length - 1; i >= 0; i--) {
         var p = para2p[i];
         var a = para2a[i];
@@ -238,9 +236,9 @@ function removePara() {
         a.parentNode.removeChild(a);
     }
 
-    let nyelv3 = document.getElementById("nyelv3");
-    let para3p = nyelv3.getElementsByTagName("P");
-    let para3a = nyelv3.getElementsByTagName("A");
+    let wordID2 = document.getElementById("wordID2");
+    let para3p = wordID2.getElementsByTagName("P");
+    let para3a = wordID2.getElementsByTagName("A");
     for (let i = para3p.length - 1; i >= 0; i--) {
         var p = para3p[i];
         var a = para3a[i];
@@ -250,10 +248,9 @@ function removePara() {
 }
 
 function hideFlashcards() {
-    document.getElementById("nyelv1").style.display = "none";
-    document.getElementById("nyelv2").style.display = "none";
-    document.getElementById("nyelv3").style.display = "none";
-    document.getElementById("nyelv3youtube").style.display = "none";
+    document.getElementById("wordID0").style.display = "none";
+    document.getElementById("wordID1").style.display = "none";
+    document.getElementById("wordID2").style.display = "none";
 }
 
 function randomWords() {
@@ -265,10 +262,10 @@ function randomWords() {
         } else {
             var number = Math.floor(Math.random() * flashCards.length);
             let language1 = flashCards[number].magyar.split(",");
-            document.getElementById("nyelv1").innerHTML = language1;
-            document.getElementById("nyelv2").innerHTML =
+            document.getElementById("wordID0").innerHTML = language1;
+            document.getElementById("wordID1").innerHTML =
                 flashCards[number].angol;
-            document.getElementById("nyelv3").innerHTML =
+            document.getElementById("wordID2").innerHTML =
                 flashCards[number].arab;
             document.getElementById("nyelv3link").innerHTML =
                 "<a href='https://forvo.com/search/" +
@@ -371,8 +368,8 @@ function writeWords(number) {
         let para = document.createElement("p");
         let node = document.createTextNode(language1[i]);
         para.appendChild(node);
-        let nyelv1 = document.getElementById("nyelv1");
-        nyelv1.appendChild(para);
+        let wordID0 = document.getElementById("wordID0");
+        wordID0.appendChild(para);
     }
     let language2 = storedFlashCards[this.number].angol.split(",");
     for (let i = 0; i < language2.length; i++) {
@@ -385,9 +382,9 @@ function writeWords(number) {
         pronunc.target = "_blank";
         pronunc.href = "https://forvo.com/search/" + language2[i];
         pronunc.addEventListener("click", clickHandler2);
-        let nyelv2 = document.getElementById("nyelv2");
-        nyelv2.appendChild(para);
-        nyelv2.appendChild(pronunc);
+        let wordID1 = document.getElementById("wordID1");
+        wordID1.appendChild(para);
+        wordID1.appendChild(pronunc);
     }
     let language3 = storedFlashCards[this.number].arab.split(",");
     for (let i = 0; i < language3.length; i++) {
@@ -400,8 +397,8 @@ function writeWords(number) {
         pronunc.target = "_blank";
         pronunc.href = "https://forvo.com/search/" + language3[i];
         pronunc.addEventListener("click", clickHandler3);
-        let nyelv3 = document.getElementById("nyelv3");
-        nyelv3.appendChild(para);
-        nyelv3.appendChild(pronunc);
+        let wordID2 = document.getElementById("wordID2");
+        wordID2.appendChild(para);
+        wordID2.appendChild(pronunc);
     }
 }

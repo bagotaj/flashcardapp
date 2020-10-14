@@ -1,0 +1,298 @@
+* {
+  padding: 0;
+  margin: 0;
+  background-color: #f1f1f1;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  width: 100%;
+}
+
+p {
+  background-color: transparent;
+}
+
+.zindex {
+  z-index: 1000;
+}
+
+.menu {
+  width: 100%;
+  background: #433a3e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-list {
+  width: 50%;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-div,
+.menu-space {
+  height: 50px;
+  padding: 0 15px 0 15px;
+  color: #fcfaf3;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  font-size: 14px;
+}
+
+.menu-div:hover {
+  background-color: #804746;
+}
+
+.informationline {
+  background: #804746;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.choosedeck,
+.newdeck,
+.addflashcard {
+  overflow: hidden;
+  background: transparent;
+  color: #fcfaf3;
+}
+
+.newdeck-content {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  width: 100%;
+  left: 0;
+  height: 120px;
+}
+
+.newdeck-content-div {
+  width: 50%;
+  height: 100%;
+  background: transparent;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: none;
+  visibility: hidden;
+}
+
+.newdeck-content-div div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: transparent;
+}
+
+.newdeck-content button {
+  width: 120px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  color: #fcfaf3;
+  font-size: 14px;
+  text-transform: uppercase;
+  background-color: #d84b50;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.newdeck-content label {
+  margin-right: 10px;
+  color: #fcfaf3;
+  background: transparent;
+}
+
+.newdeck-content input {
+  margin-right: 20px;
+}
+
+.choosedeck-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  z-index: 1001;
+  transition: all 0.3s ease-in-out;
+}
+
+.choosedeck-content p {
+  color: #333545;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-transform: capitalize;
+  transition: all 0.3s ease-in-out;
+}
+
+.choosedeck-content p:hover {
+  background-color: #c2cbd1;
+}
+
+.choosedeck:hover .choosedeck-content {
+  display: block;
+}
+
+.addflashcard-content {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  width: 100%;
+  left: 0;
+  height: 120px;
+}
+
+.addflashcard-content-div {
+  width: 100%;
+  height: 120px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: transparent;
+  visibility: hidden;
+}
+
+.addflashcard-content-div div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: transparent;
+}
+
+.addflashcard-content button {
+  width: 120px;
+  height: 40px;
+  background: none;
+  border: none;
+  color: #fcfaf3;
+  font-size: 14px;
+  text-transform: uppercase;
+  background-color: #d84b50;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.addflashcard-content label {
+  margin-right: 10px;
+  color: #fcfaf3;
+  background: transparent;
+}
+
+.addflashcard-content input {
+  margin-right: 20px;
+}
+
+.center {
+  width: 100%;
+  height: 100%;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.center div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.okbutton,
+.idontknowbutton {
+  width: 150px;
+  height: 50px;
+  background: none;
+  border: none;
+  color: #fcfaf3;
+  font-size: 18px;
+  background-color: #05a6b0;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.startbutton {
+  width: 150px;
+  height: 50px;
+  background: none;
+  border: none;
+  color: #fcfaf3;
+  font-size: 18px;
+  background-color: #d84b50;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.scene {
+  width: 300px;
+  height: 200px;
+  perspective: 800px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+}
+
+.card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card_face {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card_face--front {
+  color: #fcfaf3;
+  background: #ccaead;
+}
+
+.card_face--back {
+  color: #333545;
+  background: white;
+  transform: rotateY(180deg);
+  flex-direction: column;
+}
+
+.card_face--back a {
+  font-size: 12px;
+  color: #d84b50;
+  background: transparent;
+}
+
+.card_face--back div {
+  background: transparent;
+}
+
+.card_face--back p {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: transparent;
+}
