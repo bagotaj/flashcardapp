@@ -199,8 +199,6 @@ function monthChecker() {
 }
 
 function writeWords(number) {
-    /* this.number = number; */
-
     for (let i = 0; i < deckLanguages.length; i++) {
         if (deckLanguages[i] == "") {
             continue;

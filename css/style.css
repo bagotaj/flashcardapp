@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+:root {
+    --gray-background: #f8f9fa;
+}
+
 body {
     width: 100%;
     padding-top: 50px;
@@ -35,9 +39,11 @@ th.cursor {
     background: transparent;
 }
 
-.menu-content input {
+.menu-content input,
+textarea {
     border: none;
-    background-color: #f8f9fa;
+    background-color: var(--gray-background, #f8f9fa);
+    padding: 5px;
     margin: 0 0 20px 0;
 }
 
@@ -48,7 +54,7 @@ th.cursor {
 
 .usedLanguagebar {
     padding-top: 16px;
-    background-color: #f8f9fa;
+    background-color: var(--gray-background, #f8f9fa);
 }
 
 .blinking {
@@ -72,9 +78,7 @@ th.cursor {
 
 .choosedeck-content {
     font-size: 14px;
-    /* display: none;
-    position: absolute; */
-    background-color: #f8f9fa;
+    background-color: var(--gray-background, #f8f9fa);
     min-width: 160px;
     z-index: 1001;
     transition: all 0.3s ease-in-out;
