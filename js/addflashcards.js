@@ -53,11 +53,31 @@ function flashcardLabelInputCreator() {
     colCenterBodyRowStorage.addFlashcardsSubmit = addFlashcardsSubmit;
 
     let ownDatabaseLabel = createAnyElement("label", {
-        style: "margin-top: 20px",
+        class: "flashcard-margin",
     });
     ownDatabaseLabel.innerHTML = "Own Database";
 
     colCenterBodyRowStorage["labelowndata"] = ownDatabaseLabel;
+
+    let ownDatabaseLanguages = createAnyElement("form");
+
+    for (let i = 0; i < deckLanguages.length; i++) {
+        if (deckLanguages[i] == "") {
+            continue;
+        } else {
+            let ownDatabaseLanguagesInput = createAnyElement("input", {
+                class: "form-control",
+                type: "text",
+                id: deckLanguages[i] + "owndatabase",
+                name: deckLanguages[i] + "owndatabase",
+                value: deckLanguages[i],
+            });
+
+            ownDatabaseLanguages.appendChild(ownDatabaseLanguagesInput);
+        }
+    }
+
+    colCenterBodyRowStorage["ownDatabaseLanguages"] = ownDatabaseLanguages;
 
     let ownDatabaseTextarea = createAnyElement("textarea", {
         name: "flashcardWords",
@@ -65,7 +85,7 @@ function flashcardLabelInputCreator() {
         cols: "30",
         rows: "10",
         placeholder:
-            "language - language\nword - word\n\nangol - magyar\npurpose - cél, szándék\nassert - kijelent",
+            "word - word - word\npélda - example - مثال\n\nword - word\npélda, precedens - example",
     });
 
     colCenterBodyRowStorage["textareowndata"] = ownDatabaseTextarea;
@@ -125,28 +145,36 @@ function flashcardMaker() {
     storeCards();
 }
 
-let cardIDNumber = 0;
-
 function flashcardCreator() {
     let str = document.querySelector("#flashcardWords").value;
     let cells = str.split("\n").map(function (el) {
         return el.split(" - ");
     });
-    let headings = cells.shift();
+
+    let inputs = document.querySelectorAll("form input");
+
+    let inputsValues = [];
+
+    for (let i = 0; i < inputs.length; i++) {
+        inputsValues.push(inputs[i].value);
+    }
+
+    let headings = inputsValues;
 
     let out = cells.map(function (el) {
         let obj = {};
         for (var i = 0; i < el.length; i++) {
             obj[headings[i]] = isNaN(Number(el[i])) ? el[i] : +el[i];
-            obj.ok = 0;
-            obj.repeat = 0;
         }
         return obj;
     });
 
     for (let i = 0; i < out.length; i++) {
         out[i].cardID = storedFlashCards.length + 1 + i;
+        out[i].youtube = "";
+        out[i].ok = 0;
+        out[i].repeat = 0;
     }
 
-    console.log(JSON.stringify(out, null, 2));
+    storedFlashCards = storedFlashCards.concat(out);
 }
