@@ -142,6 +142,8 @@ function randomWords() {
         writeWords(minusOKinFlashcardDatabase[0]);
 
         minusOKinFlashcardDatabase.shift();
+    } else if (storedFlashCards[number].ok < 0) {
+        writeWords(number);
     } else if (storedFlashCards[number].ok == 0) {
         writeWords(number);
     } else if (storedFlashCards[number].ok == 1) {
