@@ -14,9 +14,9 @@ function createFlashcardPage() {
     for (let i = 0; i < deckLanguages.length; i++) {
         let colsize = 4;
 
-        if (deckLanguages.includes("")) {
+        if (deckLanguages.includes("empty")) {
             colsize = 6;
-            if (deckLanguages[i] == "") {
+            if (deckLanguages[i] == "empty") {
                 continue;
             } else {
                 let cols = createFlashcard(colsize, i);

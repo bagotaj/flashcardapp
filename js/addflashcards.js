@@ -1,20 +1,26 @@
 function createAddFlashcardsBody() {
+    colLeftBodyRowStorage = {};
     colCenterBodyRowStorage = {};
+    colRightBodyRowStorage = {};
 
     flashcardLabelInputCreator();
 
-    let colCenterBody = createColCenterBodyPart();
+    let colCenterBody = createColCenterBodyPart(
+        "col-12 col-md-4 themed-grid-col menu-content-div flashcard-margin",
+        "col-12 col-md-4 themed-grid-col menu-content-div flashcard-margin",
+        "col-12 col-md-4 themed-grid-col menu-content-div flashcard-margin"
+    );
 
     return colCenterBody;
 }
 
-function createAddFlashcardsSubmitButton(id, usedFunction) {
+function createAddFlashcardsSubmitButton(id, usedFunction, buttonText) {
     let addFlashcardsSubmitButton = createAnyElement("button", {
         class: "btn btn-danger",
         id: `${id}`,
         onclick: usedFunction,
     });
-    addFlashcardsSubmitButton.innerHTML = "Create";
+    addFlashcardsSubmitButton.innerHTML = buttonText;
 
     return addFlashcardsSubmitButton;
 }
@@ -22,16 +28,29 @@ function createAddFlashcardsSubmitButton(id, usedFunction) {
 function flashcardLabelInputCreator() {
     let addFlashcardsSubmit = createAddFlashcardsSubmitButton(
         "submitword",
-        "flashcardMaker()"
+        "flashcardMaker()",
+        "Create"
     );
 
     let addFlashcardsCreatorSubmit = createAddFlashcardsSubmitButton(
         "submitcreatewords",
-        "flashcardCreator()"
+        "flashcardCreator()",
+        "Create"
     );
 
+    let addFlashcardsSaverSubmit = createAddFlashcardsSubmitButton(
+        "submitsavewords",
+        "flashcardsToSave()",
+        "Save"
+    );
+
+    let addFlashcardsLabel = createAnyElement("label");
+    addFlashcardsLabel.innerHTML = "Add Flashcard";
+
+    colLeftBodyRowStorage["labeladdflashcard"] = addFlashcardsLabel;
+
     for (let i = 0; i < deckLanguages.length; i++) {
-        if (deckLanguages[i] == "") {
+        if (deckLanguages[i] == "empty") {
             continue;
         } else {
             let addFlashcardsLangLabel = createAnyElement("label", {
@@ -45,24 +64,22 @@ function flashcardLabelInputCreator() {
                 name: deckLanguages[i],
             });
 
-            colCenterBodyRowStorage[`label${i}`] = addFlashcardsLangLabel;
-            colCenterBodyRowStorage[`input${i}`] = addFlashcardsLangInput;
+            colLeftBodyRowStorage[`label${i}`] = addFlashcardsLangLabel;
+            colLeftBodyRowStorage[`input${i}`] = addFlashcardsLangInput;
         }
     }
 
-    colCenterBodyRowStorage.addFlashcardsSubmit = addFlashcardsSubmit;
+    colLeftBodyRowStorage.addFlashcardsSubmit = addFlashcardsSubmit;
 
-    let ownDatabaseLabel = createAnyElement("label", {
-        class: "flashcard-margin",
-    });
-    ownDatabaseLabel.innerHTML = "Own Database";
+    let ownDatabaseLabel = createAnyElement("label");
+    ownDatabaseLabel.innerHTML = "Add Own Database";
 
     colCenterBodyRowStorage["labelowndata"] = ownDatabaseLabel;
 
     let ownDatabaseLanguages = createAnyElement("form");
 
     for (let i = 0; i < deckLanguages.length; i++) {
-        if (deckLanguages[i] == "") {
+        if (deckLanguages[i] == "empty") {
             continue;
         } else {
             let ownDatabaseLanguagesInput = createAnyElement("input", {
@@ -91,6 +108,22 @@ function flashcardLabelInputCreator() {
     colCenterBodyRowStorage["textareowndata"] = ownDatabaseTextarea;
 
     colCenterBodyRowStorage.addFlashcardsCreatorSubmit = addFlashcardsCreatorSubmit;
+
+    let saveFlashcardsLabel = createAnyElement("label");
+    saveFlashcardsLabel.innerHTML = "Save Flashcards";
+
+    colRightBodyRowStorage["labelsaveflashcard"] = saveFlashcardsLabel;
+
+    let saveDatabaseTextarea = createAnyElement("textarea", {
+        name: "saveFlashcardWords",
+        id: "saveFlashcardWords",
+        cols: "30",
+        rows: "10",
+    });
+
+    colRightBodyRowStorage["textaresavedata"] = saveDatabaseTextarea;
+
+    colRightBodyRowStorage.addFlashcardsSaverSubmit = addFlashcardsSaverSubmit;
 }
 
 // Main function in chooosedeck.js
@@ -111,8 +144,8 @@ function flashcardMaker() {
         let id = deckLanguages[i];
         let language;
 
-        if (id == "") {
-            language = "";
+        if (id == "empty") {
+            language = "empty";
         } else {
             language = document.querySelector(`#${id}`).value;
         }
@@ -143,38 +176,4 @@ function flashcardMaker() {
     inputs.forEach((input) => (input.value = ""));
 
     storeCards();
-}
-
-function flashcardCreator() {
-    let str = document.querySelector("#flashcardWords").value;
-    let cells = str.split("\n").map(function (el) {
-        return el.split(" - ");
-    });
-
-    let inputs = document.querySelectorAll("form input");
-
-    let inputsValues = [];
-
-    for (let i = 0; i < inputs.length; i++) {
-        inputsValues.push(inputs[i].value);
-    }
-
-    let headings = inputsValues;
-
-    let out = cells.map(function (el) {
-        let obj = {};
-        for (var i = 0; i < el.length; i++) {
-            obj[headings[i]] = isNaN(Number(el[i])) ? el[i] : +el[i];
-        }
-        return obj;
-    });
-
-    for (let i = 0; i < out.length; i++) {
-        out[i].cardID = storedFlashCards.length + 1 + i;
-        out[i].youtube = "";
-        out[i].ok = 0;
-        out[i].repeat = 0;
-    }
-
-    storedFlashCards = storedFlashCards.concat(out);
 }

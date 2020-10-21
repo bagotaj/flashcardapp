@@ -81,7 +81,7 @@ function createKeys() {
     keys.push(basekeys[0]);
 
     for (let i = 0; i < 3; i++) {
-        if (deckLanguages[i] == "") {
+        if (deckLanguages[i] == "empty") {
             continue;
         } else {
             keys.push(deckLanguages[i]);

@@ -7,8 +7,12 @@ var editWord = [];
 let deckLanguages = [];
 let keys = [];
 
-// Store New Deck Labels and Inputs
+// Store New Deck and Add Flashcards Labels and Inputs
 let colCenterBodyRowStorage = {};
+
+// Store Add Flashcards Labels and Inputs
+let colLeftBodyRowStorage = {};
+let colRightBodyRowStorage = {};
 
 let minusOKinFlashcardDatabase = [];
 
@@ -61,7 +65,7 @@ function flashcardChecker(data) {
     }
 
     for (let i = 0; i < deckLanguages.length; i++) {
-        if (deckLanguages[i] == "") {
+        if (deckLanguages[i] == "empty") {
             continue;
         } else {
             if (flipCardsClicked[i] == true) {
@@ -102,7 +106,7 @@ function flashcardChecker(data) {
 
 function removePara() {
     for (let i = 0; i < deckLanguages.length; i++) {
-        if (deckLanguages[i] == "") {
+        if (deckLanguages[i] == "empty") {
             continue;
         } else {
             let wordID = document.getElementById(`wordID${i}`);
@@ -120,7 +124,7 @@ function removePara() {
 
 function hideFlashcards() {
     for (let i = 0; i < deckLanguages.length; i++) {
-        if (deckLanguages[i] == "") {
+        if (deckLanguages[i] == "empty") {
             continue;
         } else {
             document.getElementById(`wordID${i}`).style.display = "none";
@@ -202,7 +206,7 @@ function monthChecker() {
 
 function writeWords(number) {
     for (let i = 0; i < deckLanguages.length; i++) {
-        if (deckLanguages[i] == "") {
+        if (deckLanguages[i] == "empty") {
             continue;
         } else {
             let language = storedFlashCards[number][deckLanguages[i]].split(

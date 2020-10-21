@@ -22,6 +22,10 @@ function newDeck() {
         let newDeckLanguage = document.getElementById(`language${i}`).value;
 
         deckLanguages.push(newDeckLanguage);
+
+        if (deckLanguages.length == 2) {
+            deckLanguages.push("empty");
+        }
     }
 
     storedFlashCards.push({

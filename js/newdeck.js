@@ -5,7 +5,11 @@ function createNewDeckBody() {
 
     createNewDeckLabelInput();
 
-    let colCenterBody = createColCenterBodyPart();
+    let colCenterBody = createColCenterBodyPart(
+        "col-12 col-md-3 themed-grid-col flashcard-margin",
+        "col-12 col-md-6 themed-grid-col menu-content-div flashcard-margin",
+        "col-12 col-md-3 themed-grid-col flashcard-margin"
+    );
 
     return colCenterBody;
 }
